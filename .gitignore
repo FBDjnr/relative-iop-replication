@@ -1,0 +1,19 @@
+# --- R ---
+.Rhistory
+.RData
+.Rproj.user/
+.Ruserdata
+.Renviron
+*.Rproj
+
+# --- OS / editor cruft ---
+.DS_Store
+Thumbs.db
+*~
+
+# --- Licensed / raw survey microdata: do NOT commit to a public repo ---
+/data/raw/**
+/data/external/**
+# ...but keep the empty folder structure
+!/data/raw/.gitkeep
+!/data/external/.gitkeep
