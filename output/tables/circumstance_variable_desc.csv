@@ -1,0 +1,32 @@
+circumstance,category,category_code,n_nss_hce23_24,n_nss64,percentage_nss_hce23_24,percentage_nss64
+Dwelling unit code,owned,1,218347,38062,84.1901,87.6782
+Dwelling unit code,hired,2,36276,4640,13.9873,10.6885
+Dwelling unit code,others,9,4727,709,1.8226,1.6332
+Land possessed code (hectares),less than 0.005,1,27824,7287,10.7284,16.7861
+Land possessed code (hectares),0.005 - 0.01,2,28765,8285,11.0912,19.085
+Land possessed code (hectares),0.02 - 0.20,3,98282,6532,37.8955,15.0469
+Land possessed code (hectares),0.21 - 0.40,4,15527,3685,5.9869,8.4886
+Land possessed code (hectares),0.41 - 1.00,5,25535,5318,9.8458,12.2504
+Land possessed code (hectares),1.01 - 2.00,6,28042,5005,10.8124,11.5293
+Land possessed code (hectares),2.01 - 3.00,7,15015,3228,5.7895,7.4359
+Land possessed code (hectares),3.01 - 4.00,8,7982,1598,3.0777,3.6811
+Land possessed code (hectares),4.01 - 6.00,10,8177,1145,3.1529,2.6376
+Land possessed code (hectares),6.01 - 8.00,11,2943,542,1.1348,1.2485
+Land possessed code (hectares),greater than 8.00,12,1258,786,0.4851,1.8106
+Religion,Hinduism,1,201291,34033,77.6136,78.3972
+Religion,Islam,2,31031,4855,11.9649,11.1838
+Religion,Christianity,3,17275,2695,6.6609,6.2081
+Religion,Others,4,9753,1828,3.7606,4.2109
+Social Group,scheduled tribe,1,36473,5471,14.0632,12.6028
+Social Group,scheduled caste,2,44222,5900,17.0511,13.591
+Social Group,other backward class,3,106437,16265,41.0399,37.4675
+Social Group,others,9,72218,15775,27.8458,36.3387
+Household type code,self-employment in agriculture (rural),11,49642,13921,19.1409,32.0679
+Household type code,self-employment in non-agriculture (rural),12,22749,4126,8.7715,9.5045
+Household type code,agricultural labour (rural),13,21575,4007,8.3189,9.2304
+Household type code,non-agricultural labour (rural),14,47581,1778,18.3463,4.0957
+Household type code,unemployed (rural),19,11190,4055,4.3146,9.341
+Household type code,self-employment (urban),21,36428,6210,14.0459,14.3051
+Household type code,regular wage/salary earning (urban),22,42657,6586,16.4477,15.1713
+Household type code,casual labour (urban),23,13194,1227,5.0873,2.8265
+Household type code,unemployed (urban),29,14334,1501,5.5269,3.4576

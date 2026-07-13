@@ -1,0 +1,22 @@
+state_name,sector_name,iop_rel_wtd,se_correct,se_naive,stratum_impact,cluster_impact,total_impact
+All States,All,0.5161,0.0028,0.0022,-1.9,28.59,27.11
+All States,Rural,0.5347,0.0035,0.0028,-0.06,26.53,26.48
+All States,Urban,0.5114,0.0054,0.004,-0.62,34.15,33.69
+Uttar Pradesh,All,0.536,0.0072,0.0052,-3.91,40.56,37.81
+Uttar Pradesh,Rural,0.5699,0.0092,0.0079,-0.91,17.52,16.75
+Uttar Pradesh,Urban,0.4817,0.0117,0.0069,-6.02,72.37,68.95
+Maharashtra,All,0.5222,0.0084,0.0078,-2.22,10.37,8.36
+Maharashtra,Rural,0.5467,0.0125,0.01,-0.02,25.65,25.63
+Maharashtra,Urban,0.464,0.0126,0.0118,-2.68,9.72,7.28
+Bihar,All,0.5045,0.0091,0.0077,-1.13,19.31,18.37
+Bihar,Rural,0.4869,0.0089,0.006,-0.53,47.12,46.76
+Bihar,Urban,0.4833,0.0268,0.0336,-0.85,-19.28,-20.33
+West Bengal,All,0.5677,0.0135,0.0129,-0.91,5.02,4.15
+West Bengal,Rural,0.6021,0.0105,0.0088,-0.06,18.84,18.79
+West Bengal,Urban,0.5511,0.0267,0.0247,-0.62,8.67,8.11
+Madhya Pradesh,All,0.6134,0.0126,0.0098,-0.43,28.7,28.37
+Madhya Pradesh,Rural,0.5819,0.0111,0.0081,-0.42,37.22,36.91
+Madhya Pradesh,Urban,0.5593,0.0232,0.0182,-0.55,28.13,27.71
+Rajasthan,All,0.5413,0.0096,0.0087,-0.33,10.88,10.58
+Rajasthan,Rural,0.5426,0.0125,0.0112,-0.24,11.35,11.13
+Rajasthan,Urban,0.5712,0.0173,0.0156,-0.61,11.4,10.85
