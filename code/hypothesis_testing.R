@@ -15,14 +15,14 @@ source("custom_functions.R")
 #:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 # Directory to save results
-outputs_dir <- file.path("..", "Outputs")
+outputs_dir <- file.path("..", "output", "tables")
 
 # Survey name
 survey_names <- c("nss64", "nss_hce23_24")
 
 all_iop_results <- sapply(survey_names, 
                          function(x) {
-                           df <- readr::read_csv(file.path(outputs_dir, paste0(x, "_iop_results_v2.csv")))
+                           df <- readr::read_csv(file.path(outputs_dir, paste0(x, "_iop_results.csv")))
                            df$survey_name <- x
                            return(df)
                          },
@@ -71,7 +71,7 @@ hyp_test_results_time <- iop_results_wide_time %>%
 
 # Save Results as CSV file
 readr::write_csv(hyp_test_results_time,
-                 file.path(outputs_dir, "hyp_test_results_time_v3.csv"))
+                 file.path(outputs_dir, "hyp_test_results_time.csv"))
 
 
 # Save Results as tex file
@@ -86,7 +86,7 @@ hyp_test_results_time %>%
   kableExtra::row_spec(0, bold = TRUE) %>% 
   kableExtra::row_spec(0, extra_latex_after = colnumbering(7)) %>%
   # kableExtra::add_footnote(sig_codes, escape = FALSE) %>% 
-  kableExtra::save_kable(file = file.path(outputs_dir, "tab_hyp_test_results_time_v3.tex"),
+  kableExtra::save_kable(file = file.path(outputs_dir, "tab_hyp_test_results_time.tex"),
                          keep_tex = TRUE,
                          self_contained = TRUE)
 
@@ -118,7 +118,7 @@ hyp_test_results_sector <- iop_results_wide_sector %>%
 
 # Save Results as CSV file
 readr::write_csv(hyp_test_results_sector,
-                 file.path(outputs_dir, "hyp_test_results_sector_v2.csv"))
+                 file.path(outputs_dir, "hyp_test_results_sector.csv"))
 
 
 # Save Results as tex file
@@ -137,6 +137,6 @@ hyp_test_results_sector %>%
   ) %>% 
   kableExtra::row_spec(0, bold = TRUE) %>% 
   kableExtra::row_spec(0, extra_latex_after = colnumbering(7)) %>%
-  kableExtra::save_kable(file = file.path(outputs_dir, "tab_hyp_test_results_sector_v2.tex"),
+  kableExtra::save_kable(file = file.path(outputs_dir, "tab_hyp_test_results_sector.tex"),
                          keep_tex = TRUE,
                          self_contained = TRUE)

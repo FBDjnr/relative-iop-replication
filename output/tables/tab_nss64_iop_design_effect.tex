@@ -1,0 +1,45 @@
+
+\newsavebox{\nssIOPdesigneffecttbl}
+\savebox{\nssIOPdesigneffecttbl}{%
+\setlength{\tabcolsep}{5pt}%
+\begin{tabular}{llrrrrrr}
+\toprule
+\multicolumn{2}{c}{\textbf{ }} & \multicolumn{1}{c}{\textbf{Rel IOP}} & \multicolumn{2}{c}{\textbf{Standard Error}} & \multicolumn{3}{c}{\textbf{Structure Effect (\%)}} \\
+\cmidrule(l{3pt}r{3pt}){3-3} \cmidrule(l{3pt}r{3pt}){4-5} \cmidrule(l{3pt}r{3pt}){6-8}
+\textbf{State} & \textbf{Sector} & \textbf{(wtd)} & \textbf{Correct} & \textbf{Naive} & \textbf{Stratum} & \textbf{Cluster} & \textbf{Total}\\
+\multicolumn{1}{c}{(1)} & \multicolumn{1}{c}{(2)} & \multicolumn{1}{c}{(3)} & \multicolumn{1}{c}{(4)} & \multicolumn{1}{c}{(5)} & \multicolumn{1}{c}{(6)} & \multicolumn{1}{c}{(7)} & \multicolumn{1}{c}{(8)} \\
+\midrule
+All States & All & 0.5543 & 0.0040 & 0.0038 & -2.34 & 8.77 & 6.62\\
+ & Rural & 0.4880 & 0.0049 & 0.0047 & -0.82 & 4.09 & 3.30\\
+ & Urban & 0.4528 & 0.0061 & 0.0058 & -1.75 & 6.18 & 4.53\\
+\addlinespace
+Uttar Pradesh & All & 0.5341 & 0.0138 & 0.0133 & -9.36 & 12.53 & 4.29\\
+ & Rural & 0.5233 & 0.0118 & 0.0121 & -4.70 & 1.47 & -3.16\\
+ & Urban & 0.5219 & 0.0243 & 0.0278 & -4.28 & -7.88 & -12.54\\
+\addlinespace
+Maharashtra & All & 0.5465 & 0.0110 & 0.0107 & -6.11 & 8.02 & 2.38\\
+ & Rural & 0.4744 & 0.0151 & 0.0153 & -4.41 & 3.16 & -1.11\\
+ & Urban & 0.4275 & 0.0156 & 0.0145 & -4.18 & 11.88 & 8.17\\
+\addlinespace
+Bihar & All & 0.5788 & 0.0180 & 0.0182 & -11.90 & 9.83 & -0.88\\
+ & Rural & 0.5172 & 0.0111 & 0.0107 & -9.43 & 12.08 & 3.75\\
+ & Urban & 0.4047 & 0.0254 & 0.0281 & -5.82 & -3.43 & -9.47\\
+\addlinespace
+West Bengal & All & 0.5976 & 0.0126 & 0.0125 & -5.58 & 6.31 & 1.08\\
+ & Rural & 0.4771 & 0.0162 & 0.0166 & -1.88 & -0.66 & -2.55\\
+ & Urban & 0.4419 & 0.0160 & 0.0148 & -1.85 & 9.78 & 8.10\\
+\addlinespace
+Madhya Pradesh & All & 0.6391 & 0.0181 & 0.0183 & -10.93 & 9.16 & -0.75\\
+ & Rural & 0.5276 & 0.0199 & 0.0213 & -9.15 & 2.47 & -6.43\\
+ & Urban & 0.5461 & 0.0329 & 0.0296 & -8.96 & 18.46 & 11.00\\
+\addlinespace
+Rajasthan & All & 0.5901 & 0.0202 & 0.0192 & -9.15 & 12.77 & 4.74\\
+ & Rural & 0.5027 & 0.0194 & 0.0206 & -6.86 & 1.08 & -5.70\\
+ & Urban & 0.4691 & 0.0374 & 0.0340 & -7.12 & 15.98 & 9.90\\
+\bottomrule
+\end{tabular}%
+}
+\usebox{\nssIOPdesigneffecttbl}\\[2pt]
+\begin{minipage}{\wd\nssIOPdesigneffecttbl}
+\textit{Notes:} Column 6 measures the change in estimation of standard errors when stratification is not accounted for as a percentage of naive standard errors. Column 7 measures the change in estimation of standard errors when clustering is not accounted for as a percentage of naive standard errors. Column 8 measures the total change in estimation of standard errors when both stratification and clustering are not accounted for as a percentage of naive standard errors.
+\end{minipage}

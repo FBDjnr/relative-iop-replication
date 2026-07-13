@@ -1,0 +1,11 @@
+#!/bin/tcsh
+
+#$ -M fbilsond@nd.edu	 # Email address for job notification
+#$ -m abe		 # Send mail when job begins, ends and aborts
+#$ -pe smp 64		 # Specify parallel environment and legal core size, smp (1,2,..,128) or mpi-128 (multiple of 128)
+#$ -q long@@coba         # Specify queue (long or debug)
+#$ -N iop_sim_pop1_nc50      # Specify job name
+
+module load R/4.5.2     # Required modules
+
+R CMD BATCH --no-restore --no-save iop_sim_pop1_nc50.R iop_sim_pop1_nc50.out  # use this 

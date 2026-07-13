@@ -1,0 +1,841 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+%
+\documentclass[12pt]{article}
+
+\usepackage{amsfonts,amstext,amsfonts,amsmath,amssymb,amsthm,mathtools,bm}
+\usepackage{booktabs}
+\usepackage{adjustbox,makecell, enumitem}
+\usepackage{pdflscape}
+\usepackage{setspace}
+\usepackage{siunitx}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else  
+    % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\setcounter{secnumdepth}{5}
+% Make \paragraph and \subparagraph free-standing
+\makeatletter
+\ifx\paragraph\undefined\else
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}{
+    \@ifstar
+      \xxxParagraphStar
+      \xxxParagraphNoStar
+  }
+  \newcommand{\xxxParagraphStar}[1]{\oldparagraph*{#1}\mbox{}}
+  \newcommand{\xxxParagraphNoStar}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}{
+    \@ifstar
+      \xxxSubParagraphStar
+      \xxxSubParagraphNoStar
+  }
+  \newcommand{\xxxSubParagraphStar}[1]{\oldsubparagraph*{#1}\mbox{}}
+  \newcommand{\xxxSubParagraphNoStar}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+\makeatother
+
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+
+\addtolength{\oddsidemargin}{-.5in}%
+\addtolength{\evensidemargin}{-.1in}%
+\addtolength{\textwidth}{1in}%
+\addtolength{\textheight}{1.7in}%
+\addtolength{\topmargin}{-1in}
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{Table of contents}
+\else
+  \newcommand\contentsname{Table of contents}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{List of Figures}
+\else
+  \newcommand\listfigurename{List of Figures}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{List of Tables}
+\else
+  \newcommand\listtablename{List of Tables}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{Figure}
+\else
+  \newcommand\figurename{Figure}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{Table}
+\else
+  \newcommand\tablename{Table}
+\fi
+}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{Listing}
+\newcommand*\listoflistings{\listof{codelisting}{List of Listings}}
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+
+
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\usepackage{xr-hyper}
+\externaldocument{JASA_IOP_Complex_Survey} % Do not include the .tex extension
+\usepackage[]{natbib}
+\bibliographystyle{agsm}
+\usepackage{bookmark}
+
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  pdftitle={Supplementary Materials: Inequality of Opportunity under Complex Household Survey: Design-Consistent Inference with an Application to India},
+  pdfauthor={Francis Bilson Darku; Dweepobotee Brahma; Bhargab Chattopadhyay},
+  pdfkeywords={complex household survey, inequality, Gini index,
+stratified cluster sampling},
+  colorlinks=true,
+  linkcolor={blue},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={Blue},
+  pdfcreator={LaTeX via pandoc}}
+
+
+% Theorem-like environments with independent counters
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}{Corollary}
+\newtheorem{lemma}{Lemma}
+\newtheorem{proposition}{Proposition}
+
+% Definition-style environments with independent counters
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\newtheorem{example}{Example}
+\newtheorem{remark}{Remark}
+
+\newcommand{\anon}{0}
+
+%set the key \texttt{anon} to ``0'' to hide the authors and acknowledgements,
+%  producing the required anonymized version. 
+%Set the key \texttt{anon} to ``1'' to produce the manuscript with author details and
+% acknowledgments. 
+
+\begin{document}
+\date{}
+
+\def\spacingset#1{\renewcommand{\baselinestretch}%
+{#1}\small\normalsize} \spacingset{1}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\if1\anon
+{
+  \title{\bf Supplement of Inequality of Opportunity under Complex Household Survey: Design-Consistent Inference with an Application to India}
+  \author{Francis Bilson Darku\\
+    Mendoza College of Business, University of Notre Dame
+    \vspace{0.3cm}\\
+    % and \\
+    Dweepobotee Brahma \\
+   School of Artificial Intelligence and Data Science\\
+   Indian Institute of Technology Jodhpur\vspace{0.3cm}\\
+   Bhargab Chattopadhyay\thanks{Corresponding author: bhargab@iitj.ac.in} \\
+   School of Management and Entrepreneurship\\
+   Indian Institute of Technology Jodhpur
+   }
+  \maketitle
+
+} \fi
+
+\if0\anon
+{
+  \bigskip
+  \bigskip
+  \bigskip
+  \begin{center}
+    {\LARGE\bf Supplement of Inequality of Opportunity under Complex Household Survey: Design-Consistent Inference with an Application to India}
+\end{center}
+  \medskip
+} \fi
+
+\bigskip
+\spacingset{1.8} % DON'T change the spacing!
+
+\section{Asymptotic Distribution of relative IOP Estimator}
+\label{sec:asymp_iop}
+Suppose $X_{sc_sh}$ is the outcome for an individual belonging to $h^{\text{th}}$ household, $c_s^{\text{th}}$ cluster in the $s^{\text{th}}$ stratum. Predicted outcomes are obtained as
+\begin{align}
+\label{eq:smoothed_eq}
+    \hat{X}_{sc_sh} = \exp\left(\hat{\bm{\beta}}\bm{C}_{sc_sh}\right)
+\end{align}
+using \cite{ferreira2011measurement}.
+If $I(.)$ denotes the gini index then, the relative share of inequality of opportunity in total inequality is estimated as
+\begin{align}
+\hat{\theta}_r=\frac{\hat{\theta}_a}{\hat{\theta}}=\frac{\hat{I}(\hat{X}_{sc_sh})}{\hat{I}({X}_{sc_sh})}.
+\label{eq:IOP2Est}
+\end{align}
+Here,
+\begin{equation}
+\hat{\theta}\equiv \hat{I}({X}_{sc_sh}) = 1 - \frac{2}{\hat{\mu}} \sum_{s=1}^{S} \sum_{c_s=1}^{n_s} 
+\sum_{h=1}^{k} w_{sc_sh}X_{sc_sh} \left( 1 - \hat{F}\left(X_{sc_sh}\right)\right),
+\label{eq:GiniIndexEst}
+\end{equation} 
+and
+\begin{equation}
+\hat{\theta}_a\equiv \hat{I}(\hat{X}_{sc_sh}) = 1 - \frac{2}{\hat{\mu}_a} \sum_{s=1}^{S} \sum_{c_s=1}^{n_s} 
+\sum_{h=1}^{k} w_{sc_sh}\hat{X}_{sc_sh} \left( 1 - \hat{F}\left(\hat{X}_{sc_sh}\right) 
+\right), \hat{X}_{sc_sh} = \exp\left(\hat{\bm{\beta}}\bm{C}_{sc_sh}\right).
+\label{eq:IOP1Est}
+\end{equation}
+Here, we develop the large-sample distributional properties of the proposed relative IOP estimator under the complex survey framework described in Section~3. Throughout, we assume that conditions (AN1)--(AN12) stated in \cite{shivam2026asymptotic} or in \cite{Bhattacharya2007} hold. 
+
+Let
+$n = \sum_{s=1}^S n_s$ denote the total number of sampled clusters, where $n_s/n \to a_s \in (0,1)$ for all $s = 1,\ldots,S$.
+
+We begin by stating the asymptotic result for the survey-weighted estimators of $\theta$ and then prove the same for $\theta_a$.
+\noindent\begin{lemma} [Using \cite{Bhattacharya2007}]
+\label{lem:clt_theta}
+Suppose assumptions {(AN1)--(AN12)} hold. Further assume that $\text{E}\left(|X|\big|s \right)<\infty$. Then the consistent estimators $\hat{\theta}$ and $\hat{\theta}_a$ satisfies
+\[
+\sqrt{n}\left(\hat{\theta} - \theta \right)
+\;\xrightarrow{D}\;
+\mathcal{N}(0, \xi^2),
+\]
+where, $\xi^2$ represent the respective asymptotic variance of $\hat{\theta}$ derived in \cite{Bhattacharya2007}.
+\end{lemma}
+Before we state and prove the central limit theorem associated with $\hat{\theta}_a$, let us find the influence function of $\hat\theta_a=\hat I(\hat X_{sc_sh})$. Using the same
+argument used for the influence function of $\hat\theta$ in \citet{Bhattacharya2007}, and applied to
+the predicted outcome $\hat X_{sc_sh}$ in place of the raw outcome $X_{sc_sh}$, we have
+\begin{equation}
+\hat{\psi}^a_{sc_sh}
+= \frac{2}{\hat{\mu}_a}\left[\hat{X}_{sc_sh}\hat{F}_a(\hat{X}_{sc_sh}) + B_a(\hat{X}_{sc_sh})
+- \frac{(\hat{\mu}_a + \hat{X}_{sc_sh})(\hat{\theta}_a+1)}{2}\right].
+\label{eq:psi-a-def}
+\end{equation}
+Here, $\hat F_a(\cdot)$ is the design-weighted empirical CDF of $\{\hat X_{sc_sh}\}$, and
+\begin{equation}
+B_a(\hat{X}_{sc_sh}) = \sum_{q=1}^{Q} w_q\, \hat{X}_{[q]}\,\mathbf{1}\!\left(\hat{X}_{sc_sh}\leq \hat{X}_{[q]}\right),
+\label{eq:Ba-def}
+\end{equation}
+with $\hat{X}_{[1]}\leq\hat{X}_{[2]}\leq\cdots\leq\hat{X}_{[Q]}$. Here, $Q$, computed as $Q=\sum_{s,c_s} k$, is the number of
+fitted values $\{\hat X_{sc_sh}\}$ arranged in ascending order, and $w_q$ is the corresponding design
+weight of the $q^{\text{th}}$ ordered value. We note that the influence function $\hat\psi_{sc_sh}$ of the unsmoothed
+estimator $\hat\theta$ can be defined in the same way replacing $\hat X_{sc_sh},\hat F_a,\hat\mu_a,\hat\theta_a$
+with $X_{sc_sh},\hat F,\hat\mu,\hat\theta$ throughout.
+
+\noindent\begin{lemma}
+\label{lem:clt_theta_a}
+Suppose $\boldsymbol\beta^*=\arg\min_{\boldsymbol\beta} E\big[(\ln X-\boldsymbol\beta\mathbf C)^2\big]$
+denote the probability limit of the first-stage weighted least squares estimator
+$\hat{\boldsymbol\beta}$ in \eqref{eq:param_eq} and also
+$X^*_{sc_sh}=\exp(\boldsymbol\beta^*\mathbf C_{sc_sh})$, and let $\theta_a=I(X^*_{sc_sh})$.
+
+Suppose assumptions in \cite{Bhattacharya2007} or (AN1)--(AN12) of \cite{shivam2026asymptotic} hold for the joint vector of estimating functions
+generating $(\hat{\boldsymbol\beta},\hat I(\cdot))$, that $E(|X|\mid s)<\infty$, and that
+$g(\boldsymbol\beta)\equiv \hat I\big(\exp(\boldsymbol\beta\mathbf C_{sc_sh})\big)$ is
+continuously differentiable in $\boldsymbol\beta$ in a neighborhood of $\boldsymbol\beta^*$, with
+gradient 
+\begin{equation}
+\mathbf D
+\;=\; \frac{\partial g(\boldsymbol\beta^*)}{\partial\boldsymbol\beta}
+\;=\; \sum_{s=1}^{S}\sum_{c_s=1}^{n_s}\sum_{h=1}^{k} w_{sc_sh}\,
+\frac{\partial \hat\psi^a_{sc_sh}}{\partial \hat X_{sc_sh}}\bigg|_{\hat{\boldsymbol\beta}=\boldsymbol\beta^*}
+\,X^*_{sc_sh}\,\mathbf C_{sc_sh}^\top.
+\label{eq:D-gradient}
+\end{equation}
+Then $\hat\theta_a\xrightarrow{p}\theta_a$ and
+\begin{equation}
+\sqrt{n}\left( \hat{\theta}_a - \theta_a \right)
+\;\xrightarrow{D}\;
+\mathcal{N}(0, \xi_a^2), \xi_a^2 \;=\; \xi_{a,0}^2 \;+\; \mathbf D\,\mathbf V_\beta\,\mathbf D^\top \;+\; 2\,\mathbf D\,\boldsymbol\Gamma_{aa},
+\label{eq:lem32-clt}
+\end{equation}
+with
+\begin{align}
+\xi_{a,0}^2&= \lim_{n\to\infty}\mathrm{Var}\!\left[\sqrt n\left(\hat I(X^*_{sc_sh})-\theta_a\right)\right],
+\mathbf V_\beta= \lim_{n\to\infty}\mathrm{Var}\!\left[\sqrt n\left(\hat{\boldsymbol\beta}-\boldsymbol\beta^*\right)\right]
+= \mathbf K_\beta^{-1}\boldsymbol\Omega_\beta\mathbf K_\beta^{-1},
+\label{eq:Vbeta-def}\\
+\boldsymbol\Gamma_{aa} &= \lim_{n\to\infty}\mathrm{Cov}\!\left[\sqrt n\left(\hat{\boldsymbol\beta}-\boldsymbol\beta^*\right),\;\sqrt n\left(\hat I(X^*_{sc_sh})-\theta_a\right)\right],
+\label{eq:Gamma-aa-def}
+\end{align}
+where
+\[
+\mathbf K_\beta = \lim_{n\to\infty}\frac{1}{n}\sum_{s=1}^S\sum_{c_s=1}^{n_s}\sum_{h=1}^k w_{sc_sh}\,\mathbf C_{sc_sh}\mathbf C_{sc_sh}^\top
+\]
+is the design-weighted population Hessian of the first-stage objective, non-singular, and $\boldsymbol\Omega_\beta$
+is the corresponding stratified-cluster sandwich variance of the first-stage score,
+\[
+\boldsymbol\Omega_\beta = \lim_{n\to\infty}\mathrm{Var}\!\left[\frac{1}{\sqrt n}\sum_{s=1}^S\sum_{c_s=1}^{n_s}\sum_{h=1}^k w_{sc_sh}\,\mathbf C_{sc_sh}\left(\ln X_{sc_sh}-\boldsymbol\beta^*\mathbf C_{sc_sh}\right)\right].
+\]
+\end{lemma}
+\begin{proof}
+Define $\hat\theta_a = g(\hat{\boldsymbol\beta})$, where $g(.)$ combines the design-weighted Gini functional $\hat I(\cdot)$ with the first-stage estimator $\hat{\boldsymbol \beta}$. Under (AN1)--(AN8),  $\hat I(\cdot)$ is Hadamard differentiable as an L-statistic-type functional \citep{Fernholz1983}, $\exp(\boldsymbol\beta\mathbf C_{sc_sh})$ is a smooth function of $\boldsymbol\beta$. Therefore, by chain rule, $g({\boldsymbol\beta})$ is differentiable at $\boldsymbol\beta^*$ with gradient $\mathbf D$ as defined in \eqref{eq:D-gradient}. A first-order Taylor expansion of $g(\hat{\boldsymbol\beta})$
+around $\boldsymbol\beta^*$ therefore gives
+\begin{equation}
+\hat\theta_a-\theta_a
+= \Big[\hat I(X^*_{sc_sh})-\theta_a\Big]
++ \mathbf D\Big(\hat{\boldsymbol\beta}-\boldsymbol\beta^*\Big)
++ o_p\!\left(\big\|\hat{\boldsymbol\beta}-\boldsymbol\beta^*\big\|\right).
+\label{eq:proof-expansion-a}
+\end{equation}
+
+We next establish joint asymptotic normality of the two leading terms on the right-hand side of
+\eqref{eq:proof-expansion-a}. The term $\hat I(X^*_{sc_sh})-\theta_a$ is, by the same argument
+used to establish Lemma~\ref{lem:clt_theta} \citep{Bhattacharya2007}, asymptotically linear in the
+weighted cluster-level sums $\sum_{c_s,h} w_{sc_sh}\Tilde{\mathbf m}(x_{sc_sh},\theta)$ of
+(AN4)--(AN7), with representation
+\begin{equation}
+\hat I(X^*_{sc_sh})-\theta_a = \frac{1}{n}\sum_{s,c_s,h} w_{sc_sh}\hat\psi^a_{sc_sh} + o_p(n^{-1/2}).
+\label{eq17}
+\end{equation}
+Likewise, under (AN1)--(AN8), the first stage estimator can be written as
+\begin{equation}
+\hat{\boldsymbol\beta}-\boldsymbol\beta^*
+=
+\mathbf K_\beta^{-1}\cdot\frac{1}{n}
+\sum_{s=1}^S\sum_{c_s=1}^{n_s}\sum_{h=1}^k
+w_{sc_sh}\,\mathbf C_{sc_sh}
+\left(\ln X_{sc_sh}-\boldsymbol\beta^*\mathbf C_{sc_sh}\right)
++o_p(n^{-1/2}).
+\label{eq18}
+\end{equation}
+The LHS in \eqref{eq17}--\eqref{eq18} are sums of weighted, stratified, cluster-level contributions of the same form as $\widehat G_n$ in \cite{Bhattacharya2007}. The stratified-cluster central limit theorem of \cite{Bhattacharya2007}, or (AN1)--(AN12) of \cite{shivam2026asymptotic} stated in the Supplementary Appendix, therefore applies directly to give the joint asymptotic normality of
+$\left(
+\sqrt n\big(\hat I(X^*_{sc_sh})-\theta_a\big),\,
+\sqrt n\big(\hat{\boldsymbol\beta}-\boldsymbol\beta^*\big)
+\right)$, yielding
+\[
+\sqrt n
+\begin{pmatrix}
+\hat I(X^*_{sc_sh})-\theta_a\\
+\hat{\boldsymbol\beta}-\boldsymbol\beta^*
+\end{pmatrix}
+\;\xrightarrow{D}\;
+\mathcal N\!\left(\mathbf 0,\,
+\begin{pmatrix}
+\xi_{a,0}^2 & \boldsymbol\Gamma_{aa}^\top\\
+\boldsymbol\Gamma_{aa} & \mathbf V_\beta
+\end{pmatrix}
+\right).
+\]
+The term
+$\xi_{a,0}^2$ is the asymptotic variance of $\hat I(X^*_{sc_sh})$ when
+$\boldsymbol\beta^*$ is treated as known. Thus, it reflects only the usual sampling
+variation of the Gini-type functional. The matrix $\mathbf V_\beta$ is the asymptotic
+variance of the first-stage estimator $\hat{\boldsymbol\beta}$ and describes its sampling
+variability under the survey design. Finally, $\boldsymbol\Gamma_{aa}$ is the covariance
+between these two sources of error. Since both $\hat I(X^*_{sc_sh})$ and
+$\hat{\boldsymbol\beta}$ are computed from the same sample, their sampling errors are
+generally correlated.
+
+Multiplying \eqref{eq:proof-expansion-a} by $\sqrt n$,
+\[
+\sqrt n\left(\hat\theta_a-\theta_a\right)
+= \sqrt n\left(\hat I(X^*_{sc_sh})-\theta_a\right)
++ \mathbf D\cdot\sqrt n\left(\hat{\boldsymbol\beta}-\boldsymbol\beta^*\right)
++ o_p(1),
+\]
+since $\hat{\boldsymbol\beta}-\boldsymbol\beta^*=O_p(n^{-1/2})$ implies the remainder term in
+\eqref{eq:proof-expansion-a} is $o_p(n^{-1/2})$ and hence vanishes after multiplication by
+$\sqrt n$. The right-hand side is a fixed linear combination, with coefficient vector
+$(1,\mathbf D)$, of the jointly asymptotically normal vector above. By the Cramér--Wold device, we have,
+\begin{equation}
+\sqrt n\left(\hat\theta_a-\theta_a\right)\;\xrightarrow{D}\;\mathcal N(0,\xi_a^2).
+\label{eq:xi-a-full}
+\end{equation}
+The asymptotic variance in \eqref{eq:xi-a-full} contains three terms:
+\[
+\xi_a^2
+=
+\xi_{a,0}^2
++
+\mathbf D\mathbf V_\beta\mathbf D^\top
++
+2\mathbf D\boldsymbol\Gamma_{aa}.
+\]
+The first term is the variance due to estimating the Gini functional when $\boldsymbol\beta^*$ is known, the second term captures the additional variation arising
+from estimating $\boldsymbol\beta^*$, and the third term accounts for the covariance
+between the two sources of error. The expressions are provided in \eqref{eq:Vbeta-def} and \eqref{eq:Gamma-aa-def}.
+
+The consistency property, $\hat\theta_a\xrightarrow{p}\theta_a$, follows from
+$\hat I(X^*_{sc_sh})\xrightarrow{p}\theta_a$ (the consistency argument underlying
+Lemma~\ref{lem:clt_theta}) together with $\hat{\boldsymbol\beta}\xrightarrow{p}\boldsymbol\beta^*$
+and the continuous mapping theorem applied to $g(\cdot)$.
+\end{proof}
+To derive the asymptotic distribution of the relative IOP estimator, we next characterize the joint behavior of $\hat{\theta}$ and $\hat{\theta}_a$.
+\begin{lemma}
+\label{lem:joint_clt_corrected}
+Under the conditions of Lemma~\ref{lem:clt_theta} and Lemma~\ref{lem:clt_theta_a},
+\begin{equation}
+\mathbf{Y}_n = \sqrt n
+\begin{pmatrix}
+\hat\theta_a-\theta_a\\
+\hat\theta-\theta
+\end{pmatrix}
+\;\xrightarrow{D}\;
+\mathcal N_2(\mathbf 0,\boldsymbol\Sigma),
+\qquad
+\boldsymbol\Sigma =
+\begin{pmatrix}
+\xi_a^2 & \eta\\
+\eta & \xi^2
+\end{pmatrix},
+\label{eq:joint-clt-corrected}
+\end{equation}
+where $\xi_a^2$ is as in \eqref{eq:xi-a-full}, $\xi^2$ is as in Lemma~\ref{lem:clt_theta}, and
+\begin{equation}
+\eta \;=\; \eta_0 \;+\; \mathbf D\,\boldsymbol\Gamma_{a\theta},
+\label{eq:eta-full}
+\end{equation}
+with
+\begin{align}
+\eta_0 &= \lim_{n\to\infty}\mathrm{Cov}\!\left[\sqrt n\left(\hat I(X^*_{sc_sh})-\theta_a\right),\,\sqrt n\left(\hat I(X_{sc_sh})-\theta\right)\right],
+\label{eq:eta0-def}\\
+\boldsymbol\Gamma_{a\theta} &= \lim_{n\to\infty}\mathrm{Cov}\!\left[\sqrt n\left(\hat{\boldsymbol\beta}-\boldsymbol\beta^*\right),\,\sqrt n\left(\hat I(X_{sc_sh})-\theta\right)\right].
+\label{eq:Gamma-atheta-def}
+\end{align}
+\end{lemma}
+ 
+\begin{proof}
+Substitute the expansion \eqref{eq:proof-expansion-a} for $\hat\theta_a-\theta_a$ and the
+expansion $\hat\theta-\theta=\hat I(X_{sc_sh})-\theta+o_p(n^{-1/2})$ for
+$\hat\theta-\theta$ into $Y_n$. The first component becomes
+\[
+\sqrt n(\hat\theta_a-\theta_a) = \sqrt n\left(\hat I(X^*_{sc_sh})-\theta_a\right) + \mathbf D\sqrt n\left(\hat{\boldsymbol\beta}-\boldsymbol\beta^*\right) + o_p(1),
+\]
+so that the asymptotic covariance of $\mathbf{Y}_n$ is
+\begin{align*}
+\eta&=\mathrm{Cov}\!\left[\sqrt n(\hat\theta_a-\theta_a),\,\sqrt n(\hat\theta-\theta)\right]= \mathrm{Cov}\!\left[\sqrt n\left(\hat I(X^*_{sc_sh})-\theta_a\right),\,\sqrt n\left(\hat I(X_{sc_sh})-\theta\right)\right]+\\
+& \mathbf D\,\mathrm{Cov}\!\left[\sqrt n\left(\hat{\boldsymbol\beta}-\boldsymbol\beta^*\right),\,\sqrt n\left(\hat I(X_{sc_sh})-\theta\right)\right] + o(1)\\
+&= \eta_0 + \mathbf D\boldsymbol\Gamma_{a\theta} + o(1),
+\end{align*}
+in the limit, which is \eqref{eq:eta-full}. Joint asymptotic normality of $Y_n$ with this
+covariance follows from the same CLT argument used in the proof of Lemma~\ref{lem:clt_theta_a}, applied now to the trivariate vector of asymptotically linear terms
+$\big(\sqrt n(\hat I(X^*_{sc_sh})-\theta_a),\,\sqrt n(\hat{\boldsymbol\beta}-\boldsymbol\beta^*),\,\sqrt n(\hat I(X_{sc_sh})-\theta)\big)$,
+followed by the Cramér--Wold device applied to the two linear combinations defining $Y_n$.
+\end{proof}
+Having derived the joint asymptotic normality associated with $\hat \theta$ and $\hat \theta_a$, we now derive the central limit of the proposed relative IOP estimator.
+\begin{theorem}
+\label{thm:clt_theta_r}
+Let $\theta_r = {\theta_a}/{\theta}$ and $\hat{\theta}_r = \frac{\hat{\theta}_a}{\hat{\theta}}$, with \( \theta > 0 \). Under the conditions of Lemmas~\ref{lem:clt_theta},~\ref{lem:clt_theta_a},
+\[
+\sqrt{n}\left( \hat{\theta}_r - \theta_r \right)
+\;\xrightarrow{D}\;
+\mathcal{N}(0, \varrho^2),\text{ where, }\varrho^2
+=\left[\frac{\theta_a}{\theta}\right]^2\left[\frac{\xi_a^2}{\theta_a^2} + \frac{\xi^2}{\theta^2} - \frac{2\eta}{\theta_a\theta}\right].
+\]
+\end{theorem}
+\begin{proof}
+Define the smooth function \( g(x,y) = x/y \). A second-order Taylor expansion of
+\( g(\hat{\theta}_a, \hat{\theta}) \) around \( (\theta_a, \theta) \) yields
+\begin{align}
+\hat{\theta}_r - \theta_r
+&=
+\nabla g(\theta_a,\theta)^\top
+\begin{pmatrix}
+\hat{\theta}_a - \theta_a \\
+\hat{\theta} - \theta
+\end{pmatrix}
++
+\frac{1}{2}
+\begin{pmatrix}
+\hat{\theta}_a - \theta_a \\
+\hat{\theta} - \theta
+\end{pmatrix}^\top
+\nabla^2 g(\tilde{\theta}_a,\tilde{\theta})
+\begin{pmatrix}
+\hat{\theta}_a - \theta_a \\
+\hat{\theta} - \theta
+\end{pmatrix},
+\label{eq:taylor_expansion}
+\end{align}
+where \( (\tilde{\theta}_a,\tilde{\theta}) \) lies on the line segment joining
+\( (\hat{\theta}_a,\hat{\theta}) \) and \( (\theta_a,\theta) \).
+The gradient and Hessian of \( g \) are given by
+\[
+\nabla g(x,y)
+=
+\begin{pmatrix}
+y^{-1} \\
+-xy^{-2}
+\end{pmatrix},
+\nabla^2 g(x,y)
+=
+\begin{pmatrix}
+0 & -y^{-2} \\
+-y^{-2} & 2xy^{-3}
+\end{pmatrix},\text{ and }
+\nabla g(\theta_a,\theta)
+=
+\begin{pmatrix}
+\theta^{-1} \\
+-\theta_a \theta^{-2}
+\end{pmatrix}.
+\]
+Under Lemmas~\ref{lem:clt_theta},~\ref{lem:clt_theta_a},
+\[
+\hat{\theta}_a - \theta_a = O_p(n^{-1/2}),
+\qquad
+\hat{\theta} - \theta = O_p(n^{-1/2}),
+\]
+and hence
+\[
+\left\|
+\begin{pmatrix}
+\hat{\theta}_a - \theta_a \\
+\hat{\theta} - \theta
+\end{pmatrix}
+\right\|^2
+= O_p(n^{-1}).
+\]
+Since $\theta>0$ and $\hat{\theta}\xrightarrow{p}\theta$, there exists a neighborhood of $(\theta_a,\theta)$ on which the Hessian of $g(x,y)=x/y$ is bounded. Consequently, $\nabla^2 g(\tilde{\theta}_a,\tilde{\theta})=O_p(n^{-1})$.
+
+Therefore, the second-order term in \eqref{eq:taylor_expansion} satisfies
+\[
+\frac{1}{2}
+\begin{pmatrix}
+\hat{\theta}_a - \theta_a \\
+\hat{\theta} - \theta
+\end{pmatrix}^\top
+\nabla^2 g(\tilde{\theta}_a,\tilde{\theta})
+\begin{pmatrix}
+\hat{\theta}_a - \theta_a \\
+\hat{\theta} - \theta
+\end{pmatrix}
+= O_p(n^{-1})
+= o_p(n^{-1/2}).
+\]
+Consequently,
+\[
+\hat{\theta}_r - \theta_r
+=
+\nabla g(\theta_a,\theta)^\top
+\begin{pmatrix}
+\hat{\theta}_a - \theta_a \\
+\hat{\theta} - \theta
+\end{pmatrix}
++ o_p(n^{-1/2}).
+\]
+Multiplying both sides by \( \sqrt{n} \) and applying Lemmas~\ref{lem:clt_theta} and~\ref{lem:clt_theta_a}
+together with the multivariate delta method, yields
+\[
+\sqrt{n}(\hat{\theta}_r - \theta_r)
+\;\xrightarrow{D}\;
+\mathcal{N}(0,\varrho^2),
+\]
+where
+\[\varrho^2
+=
+\nabla g(\theta_a,\theta)^\top
+\boldsymbol{\Sigma}
+\nabla g(\theta_a,\theta)
+    = \frac{1}{\theta^2}\xi_a^2 + \frac{\theta_a^2}{\theta^4}\xi^2 - \frac{2\theta_a}{\theta^3}\eta
+    = \left[\frac{\theta_a}{\theta}\right]^2\left[\frac{\xi_a^2}{\theta_a^2} + \frac{\xi^2}{\theta^2} - \frac{2\eta}{\theta_a\theta}\right].
+\]
+This completes the proof.
+\end{proof}
+So far, we established the central limit theorem associated with the relative IOP estimator under a complex survey design.
+
+\subsection{Consistent Estimators of $\eta$, $\xi^2$ and $\xi^2_a$}
+\label{ssec:consist_est}
+
+Using \cite{Bhattacharya2007}, a consistent estimator of $\xi^2$, the asymptotic variance of $\hat\theta$, is given by
+\begin{align*}
+\hat{\xi}^2=&
+\sum_{s=1}^{S}\sum_{c_s=1}^{n_s}\sum_{h=1}^{k}w^2_{sc_sh}\hat{\psi}_{sc_sh}^2 + 
+\sum_{s=1}^{S}\sum_{c_s=1}^{n_s}\sum_{h=1}^{k}\sum_{h\neq h'}w_{sc_sh}w_{sc_sh'}\hat{\psi}_{sc_sh}\hat{\psi}_{sc_sh'} \\
+&-\sum_{s=1}^{S}\frac{1}{n_s}\left(\sum_{c_s=1}^{n_s}\sum_{h=1}^{k}w_{sc_sh}\hat{\psi}_{sc_sh}\right)^2,
+\end{align*}
+where,
+\begin{align*}
+    \hat{\psi}_{sc_sh} &= \frac{2}{\hat{\mu}}\left[X_{sc_sh}\hat{F}(X_{sc_sh}) + B(X_{sc_sh}) - \frac{(\hat{\mu} + X_{sc_sh})(\hat{\theta}+1)}{2}\right],\\
+    B(X_{sc_sh}) &= \sum_{q=1}^{Q}w_q X_{[q]}\bm{I}(X_{sc_sh}\leq X_{[q]}),\\
+    X_{[q]}\ & \text{is ordered}\ X_{sc_sh}\ \text{such that}\ X_{[1]}\leq X_{[2]}\leq\cdots\leq X_{[Q]},\ \text{and}\\
+    Q\ & \text{is the total number of observations.}
+\end{align*}
+Similarly, a consistent estimator of $\xi_a^2$, the asymptotic variance of $\hat\theta_a$, is
+obtained by replacing $\hat\psi_{sc_sh}$ with $\hat\psi^a_{sc_sh}$ throughout (i.e., the variance
+of $\hat\theta_a$ is the covariance of $\hat\psi^a$ with itself):
+\begin{align*}
+\hat{\xi}_a^2=&
+\sum_{s=1}^{S}\sum_{c_s=1}^{n_s}\sum_{h=1}^{k}w^2_{sc_sh}\left(\hat{\psi}_{sc_sh}^a\right)^2 + 
+\sum_{s=1}^{S}\sum_{c_s=1}^{n_s}\sum_{h=1}^{k}\sum_{h\neq h'}w_{sc_sh}w_{sc_sh'}\hat{\psi}_{sc_sh}^a\hat{\psi}_{sc_sh'}^a \\
+&-\sum_{s=1}^{S}\frac{1}{n_s}\left(\sum_{c_s=1}^{n_s}\sum_{h=1}^{k}w_{sc_sh}\hat{\psi}_{sc_sh}^a\right)^2.
+\end{align*}
+We note that the influence function $\hat{\psi}_{sc_sh}^a$ is given in \eqref{eq:psi-a-def}.
+
+A consistent estimator of $\eta$ is obtained using influence functions $\hat{\psi}_{sc_sh}$ and $\hat{\psi}^a_{sc_sh}$ corresponding to $\hat{\theta}$ and $\hat{\theta}_a$, respectively, and is by
+\begin{align*}
+\hat{\eta}=&
+\sum_{s=1}^{S}\sum_{c_s=1}^{n_s}\sum_{h=1}^{k}w^2_{sc_sh}\hat{\psi}_{sc_sh}\hat{\psi}_{sc_sh}^a + 
+\sum_{s=1}^{S}\sum_{c_s=1}^{n_s}\sum_{h=1}^{k}\sum_{h\neq h'}w_{sc_sh}w_{sc_sh'}\hat{\psi}_{sc_sh}\hat{\psi}_{sc_sh'}^a \\
+&-\sum_{s=1}^{S}\frac{1}{n_s}\left(\sum_{c_s=1}^{n_s}\sum_{h=1}^{k}w_{sc_sh}\hat{\psi}_{sc_sh}\right)\left(\sum_{c_s=1}^{n_s}\sum_{h=1}^{k}w_{sc_sh}\hat{\psi}_{sc_sh}^a\right)
+\end{align*}
+The asymptotic results may be extended to enable us to do a wide range of policy-relevant comparative analyses of inequality of opportunity. For example, the framework can be used to formally compare inequality of opportunity between tribal and non-tribal areas by treating them as non-overlapping subpopulations and testing whether the relative contribution of circumstances to inequality differs significantly across these groups. Similarly, the results facilitate comparisons across rural and urban regions, across states or districts, or across survey rounds to assess whether inequality of opportunity has narrowed or widened over time. In each case, the proposed central limit theorem provides a principled basis for constructing confidence intervals and hypothesis tests that fully account for the complex sampling design underlying household survey data, thereby allowing policymakers to move beyond descriptive comparisons toward statistically grounded evaluations of inequality of opportunity.
+
+\section{Simulation Study}
+\label{sec:simulation}
+
+
+This section evaluates the finite-sample performance of the proposed
+relative IOP estimator under a stratified two-stage cluster sampling design.
+The study is organised around four objectives: (i) assessing whether the
+estimator $\hat{\omega}_r$ is consistent and approximately unbiased at
+sample sizes comparable to large-scale household surveys; (ii) examining
+whether confidence intervals constructed from the design-based standard
+error achieve nominal coverage; (iii) verifying that the asymptotic normal
+approximation of Theorem~\ref{thm:clt_theta_r} holds in finite samples; and (iv)
+evaluating the size and power of the proposed two-sample Wald test.
+
+\subsection{Data Generating Process: Synthetic Population Creation}
+\label{subsec:sim_design}
+The simulation is based on a synthetic finite population containing $60{,}000$
+households that replicates the structural features of a large-scale
+stratified household survey. This population of $60,0000$ household is partitioned into $S = 2$ strata, each containing $H_s = 750$ clusters, for a total of $H = 1{,}500$ clusters. Each cluster comprises $M_h = 40$ households, giving a constant
+cluster size. The intra-cluster correlation for log-income is set to
+$\rho = 0.10$, a value consistent with empirical estimates from national
+surveys. Three circumstance variables - Race, Language group and Land Ownership are assigned to each household $i$ independently of the random effects. The first variable, Race ($C_{1}$), is a binary indicator following a Bernoulli distribution with a success probability of 0.40, which means approximately 39.75\% of the households in the sample belong to the minority racial group. The second variable, Language Group ($C_{2}$), is a three-category factor with probabilities structured as $P(C_2 = 0) = 0.28$, $P(C_2 = 1) = 0.35$, and $P(C_2 = 2) = 0.37$, which is entered into the model using two binary dummy variables, ${LG}_{1}$ and $LG_{2}$. Finally, Land Ownership ($C_{3}$) is a binary variable distributed as Bernoulli with a success probability of 0.50, indicating that approximately 49.93\% of the households own land.
+
+Next, the household log-income is generated according to the following hierarchical model
+\begin{equation}
+    log\ y_i=\mu + \beta_1 C_{1i} + \beta_2\,{LG}_{1i}
+                       + \beta_3\,{LG}_{2i} + \beta_4 C_{3i}
+                       + \gamma_s + u_h + \varepsilon_i,
+    \label{eq:sim_dgp}
+\end{equation}
+where $\mu = 8.0$, and the three random components are mutually independent:
+$\gamma_s \sim \mathcal{N}(0,\, 0.05)$, $u_h \sim \mathcal{N}(0,\, 0.10)$, and
+$\varepsilon_i \sim \mathcal{N}(0,\, 0.90)$. The stratum effect $\gamma_s$ captures systematic between-stratum income
+differences, while the cluster effect $u_h$ induces the within-cluster correlation $\rho = 0.10$.
+Household income is $y_i = exp(log\ y_i)$, yielding a log-normal marginal
+distribution with population mean $8019.40$ and population median $4411.51$.
+
+The circumstance effect sizes are set to $(\beta_1, \beta_2, \beta_3, \beta_4)
+= (0.80,\, 0.01,\, 0.02,\, 0.015)$, making Race the dominant driver of
+income inequality. The resulting population quantities are: total Gini
+$\theta = 0.5593$, absolute IOP $\theta_a = 0.1997$, and true relative IOP of the population is
+\begin{equation}
+    \theta_r \;=\; \frac{\theta_a}{\theta} \;=\; \frac{0.1997}{0.5593}
+              \;=\; 0.3571.
+    \label{eq:true_omega_r}
+\end{equation}
+This represents that in this population, approximately $35.7\%$ of total income inequality is attributable to circumstances beyond individual control.
+\subsection{Simulation Design and Inference}
+In each Monte Carlo replication, a stratified two-stage cluster sample is drawn from the synthetic population. From each stratum, a sample of $n_s \in \{50, 75, 100, 500\}$ clusters are selected via simple random sampling without replacement (SRSWOR), yielding a total sample size of $n = 2n_s$ clusters from the population (specifically, $n = 100, 150, 200$, and $1000$ clusters, respectively).
+
+From these selected clusters, similar to \cite{Bhattacharya2007}, we selected $k =4$ households by SRSWOR, giving a total sample of $4n$ households per replication. Because all clusters have the same size with $M_h = 40$ and the same number of households ($k$) are drawn from each, the weight reduces to a constant $W = M_h H_s/(k n_s) = 40 \times 750 / (4 \times n_s)$ for
+every sampled household. Here, $H_s$ is the number of clusters in the population. For each replication, we compute the sample relative IOP estimator $\hat{\theta}_r = \hat{\theta}_a / \hat{\theta}$
+using equations~(\ref{eq:IOP1Est})--(\ref{eq:IOP2Est}). The design-based variance is estimated via the stratified leave-one-cluster-out (LOO) jackknife:
+\begin{equation}
+    \widehat{\mathrm{Var}}_{\mathrm{JK}}(\hat{\theta}_r)
+    \;=\;
+    \sum_{s=1}^{S} \frac{n_s - 1}{n_s}
+    \sum_{c=1}^{n_s}
+    \bigl(\hat{\theta}_r^{(-c)} - \bar{\hat{\theta}}_r^{(s)}\bigr)^2,
+    \label{eq:jk_var}
+\end{equation}
+where $\hat{\theta}_r^{(-c)}$ is the leave-cluster-$c$-out estimate and
+$\bar{\hat{\theta}}_r^{(s)}$ is the stratum-$s$ mean of the LOO estimates. This jackknife variance estimator, that is the design-based variance, is algebraically equivalent to applying the multivariate delta method to the joint jackknife of $(\hat{\theta}, \hat{\theta}_a)$
+and therefore constitutes the finite-sample analogue of the Theorem~3.3 sandwich variance. As a benchmark, a naive SRS percentile bootstrap SE is also computed by resampling households with replacement, ignoring the complex household survey 
+design mentioned in section 2.
+
+Next this whole process is repeated $5{,}000$ replications. However, for the power study, $B = 2{,}000$ replications are used at each of five
+values of the true IOP difference $\delta$. All computations are parallelised across available CPU cores in \textsf{R}, with a fixed seed for reproducibility. The standard error computed using the Jackkinfe estimator based on the complex household survey design is termed as Design-based SE while the standard error computed using bootstrap method based on SRSWOR (ignoring the complex household survey design) is termed as SRS-based SE. 
+
+\subsection{Simulation Results}
+\label{subsec:sim_results}
+We evaluate the performance of the proposed estimator $\hat{\theta}_r$ across four settings in which the number of clusters to be selected per stratum are fixed at 50, 75, 100, and 500, such that the total number of sampled clusters is $100, 150, 200,$ and $1000$ respectively and also the number of selected households are $400, 600, 800$, and $4000$ respectively. The true population relative IOP is $\theta_r = 0.3571$.
+
+Table~\ref{tab:sim_consistency} summarizes the finite-sample performance of the proposed estimator based on 5,000 Monte Carlo replications. The estimator slightly overestimates the true relative IOP in all four scenarios, which is expected for ratio estimators in finite samples. However, the bias decreases as the number of sampled clusters increases. It falls from 0.034 at (n=100) clusters to 0.007 at (n=1,000) clusters, a reduction of about 79\%. The RMSE also declines from 0.055 to 0.015, indicating that both bias and variability become smaller with larger cluster sizes. Overall, the relative IOP estimates move closer to the true population value as the sample size increases, providing evidence of consistency property.
+
+Also, from Table~\ref{tab:sim_consistency}, the design-based SE performs well across all sampling scenarios. On an average, it is close to the Monte Carlo standard deviation, with ratios ranging from $1.08$ to $1.14$. This suggests that the design-based SE slightly overestimates the true sampling variability, leading to conservative inference. In contrast, the SRS-based SE is consistently smaller by about 5\%. This occurs because the it ignores the complex household survey design and treats households as independent observations. Since households within the same cluster tend to have similar incomes $(\rho=0.10)$, ignoring the appropriate sampling design understates the true variability. The estimated design effect remains close to approximately $1.11$ across all scenarios, showing that analyses based on simple random sampling assumptions underestimate sampling error by roughly 5\% .
+\begin{table}[ht]
+\centering
+\caption{Finite-Sample Performance of the Relative IOP Estimator Based on $5000$ Replications}
+\label{tab:sim_consistency}
+\begin{tabular}{l|cccc}
+\hline
+Statistic & \multicolumn{4}{c}{Clusters per Stratum} \\
+\cline{2-5}
+ & 50 & 75 & 100 & 500 \\
+\hline
+Mean ($\bar{\hat{\theta}}_r$)
+  & $0.3911$ & $0.3832$ & $0.3784$ & $0.3642$ \\
+Bias
+  & $0.0341$ & $0.0261$ & $0.0214$ & $0.0071$ \\
+RMSE
+  & $0.0553$ & $0.0442$ & $0.0379$ & $0.0152$ \\
+Monte Carlo SD
+  & $0.0436$ & $0.0356$ & $0.0312$ & $0.0134$ \\
+Design-based SE
+  & $0.0474$ & $0.0389$ & $0.0338$ & $0.0152$ \\
+SRS-based SE
+  & $0.0450$ & $0.0370$ & $0.0321$ & $0.0145$ \\
+Mean DEFF
+  & $1.116$  & $1.116$  & $1.115$  & $1.109$  \\
+HH sample size ($kn$)
+  & $400$ & $600$ & $800$ & $4{,}000$ \\
+  \hline
+\end{tabular}
+\end{table}\\
+
+Table~\ref{tab:sim_coverage} reports the empirical coverage of the nominal $95\%$ Wald confidence interval, $\hat{\theta}_r \pm 1.96\,\widehat{SE}$, for both the standard error is computed using both estimators - the design-based SE and the SRS-based SE.
+
+For the case of smaller number of cluster, the confidence interval constructed using design-based SE covers the true parameter in 88.9\% of replications, while the confidence interval constructed using SRS-based SE covers it in 87.1\% of the cases. The lower coverage is mainly due to the positive bias of the estimator in small samples. Coverage improves steadily as the number of selected clusters increases. When a total of 1000 clusters are selected, the interval constructed using design-based SE achieves 95.0\% coverage, matching the nominal level almost exactly while the interval constructed using SRS-based SE reaches 94.0\% coverage. It continues to under-cover because it ignores the survey design. Across all cluster sizes, interval constructed using design-based SE are about 5\% wider than the interval constructed using SRS-based SE, reflecting the additional variability introduced by design. These results show that accounting for the survey design is important for obtaining confidence intervals with the correct coverage probability. Failure to do so leads to confidence intervals that are too narrow and that miss the true value more often than they should.
+\begin{table}[ht]
+\centering
+\caption{Empirical Coverage and Mean Width of Nominal 95\% Wald CIs
+         ($B = 5{,}000$ replications)}
+\label{tab:sim_coverage}
+\setlength{\tabcolsep}{6pt}
+\begin{tabular}{c|cc|cc|cc|cc}
+\hline
+Clusters per Stratum$\rightarrow$ & \multicolumn{2}{c}{$50$}
+ & \multicolumn{2}{c}{$75$}
+ & \multicolumn{2}{c}{$100$}
+ & \multicolumn{2}{c}{$500$} \\
+ \hline
+%\cline{2-3}\cline{4-5}\cline{6-7}\cline{8-9}
+SE Estimator Used$\downarrow$
+ & Cov. & Width
+ & Cov. & Width
+ & Cov. & Width
+ & Cov. & Width \\
+\hline
+Design-based 
+ & $0.889$ & $0.186$
+ & $0.902$ & $0.153$
+ & $0.907$ & $0.132$
+ & $0.950$ & $0.060$ \\
+SRS-based
+ & $0.871$ & $0.177$
+ & $0.886$ & $0.145$
+ & $0.893$ & $0.126$
+ & $0.940$ & $0.057$ \\
+%Deviation (JK $-$ Naive)
+% & $+0.018$ & $+0.009$
+% & $+0.016$ & $+0.008$
+% & $+0.014$ & $+0.007$
+% & $+0.010$ & $+0.003$ \\
+\hline
+\multicolumn{9}{l}{\footnotesize Note: Cov.\ = empirical coverage}
+\end{tabular}
+\end{table}
+To evaluate whether the proposed test can reliably detect differences in
+relative IOP between two populations, we construct a second synthetic
+population by reducing the Race effect coefficient from
+$\beta_1^{(1)} = 0.80$ to five values $\beta_1^{(2)} \in
+\{0.80, 0.65, 0.50, 0.35, 0.08\}$, producing true IOP differences
+$\delta = \theta_r^{(1)} - \theta_r^{(2)}$ of approximately
+$\{0, 0.057, 0.120, 0.186, 0.309\}$.
+The test statistic $T$, defined as 
+\begin{equation}
+    T \;=\; \frac{\hat{\theta}_r^{(1)} - \hat{\theta}_r^{(2)}}
+                 {\sqrt{\widehat{\mathrm{Var}}_{\mathrm{JK}}(\hat{\theta}_r^{(1)})
+                        + \widehat{\mathrm{Var}}_{\mathrm{JK}}(\hat{\theta}_r^{(2)})}},
+    \label{eq:wald_test}
+\end{equation}
+can be used for testing $H_0\colon \theta_r^{(1)} = \theta_r^{(2)}$
+versus $H_1\colon \theta_r^{(1)} \neq \theta_r^{(2)}$, a second synthetic
+population is constructed by only varying the Race effect coefficient $\beta_1^{(2)}$ while holding all other parameters fixed.
+
+Table~\ref{tab:sim_power} reports the rejection rates across all combinations of $\delta$ and cluster size based on $B = 2{,}000$ independent replications provided $\alpha = 0.05$. When both populations have the same true IOP (i.e., $\delta$ is very close to $0$ - the first case), the rejection rates are $0.041$, $0.034$, $0.035$, and $0.027$ for $n = 100, 150, 200$, and $1{,}000$ clusters respectively. Under the null hypothesis ($\delta \approx 0$), the rejection rates range from 0.027 to 0.041 across the four scenarios. All values are below the nominal 5\% significance level, indicating that the test is slightly conservative. This behaviour is consistent with the tendency of the jackknife variance estimator to slightly overestimate sampling variability.
+
+The power of the test increases with both the true difference in relative IOP and the number of sampled clusters. For smaller number of clusters, small differences are difficult to detect. A true IOP difference of $0.057$ is identified in only 19\% of replications, while a difference of $0.120$ is detected in 51\% of cases. The rejection rate exceeds the conventional 80\% threshold when $\delta=0.186$, reaching 83.7\%. For the largest difference considered, $\delta=0.309$, the test rejects the null hypothesis in almost every replication. The power improves substantially as the number of clusters increases. In case of $1,000$ total clusters, the test achieves $84.4\%$ power even when the true difference is only $0.057$. For differences of $0.120$ or larger, power is effectively 100\%. These results suggest that survey samples of the size commonly used in national household surveys are capable of detecting relatively small differences in inequality of opportunity.
+
+\begin{table}[ht]
+\centering
+\caption{Empirical Rejection Rates of the Two-Sample Wald Test
+         ($B = 2{,}000$ replications per cell; $k = 4$ HH per cluster;
+         $\alpha = 0.05$)}
+\label{tab:sim_power}
+\setlength{\tabcolsep}{6pt}
+\begin{tabular}{c|c|c|cccc}
+\hline
+ & & & \multicolumn{4}{c}{Rejection Rate by Total Clusters $n$} \\
+\cline{4-7}
+$\beta_1^{(2)}$
+ & $\theta_r^{(2)}$
+ & True $\delta$
+ & $n=100$ & $n=150$ & $n=200$ & $n=1{,}000$ \\
+\hline
+$0.80$ & $0.3593$ & $-0.002$ & $0.041$ & $0.034$ & $0.035$ & $0.027$ \\
+$0.65$ & $0.3005$ & $\phantom{-}0.057$ & $0.191$ & $0.266$ & $0.327$ & $0.844$ \\
+$0.50$ & $0.2373$ & $\phantom{-}0.120$ & $0.511$ & $0.701$ & $0.794$ & $1.000$ \\
+$0.35$ & $0.1708$ & $\phantom{-}0.186$ & $0.837$ & $0.937$ & $0.984$ & $1.000$ \\
+$0.08$ & $0.0476$ & $\phantom{-}0.309$ & $0.995$ & $1.000$ & $1.000$ & $1.000$ \\
+\hline
+\end{tabular}
+\end{table}
+Overall, these results support the use of the proposed design-consistent framework for drawing statistical inferences on relative inequality of opportunity from complex household survey data.
+
+\bibliography{IOPBib.bib}
+\end{document}

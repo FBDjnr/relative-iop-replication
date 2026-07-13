@@ -1,0 +1,642 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+%
+\documentclass[12pt]{article}
+
+\usepackage{amsfonts,amstext,amsfonts,amsmath,amssymb,amsthm,mathtools,bm}
+\usepackage{booktabs}
+\usepackage{adjustbox,makecell, enumitem}
+\usepackage{pdflscape}
+\usepackage{setspace}
+\usepackage{siunitx}
+\usepackage{xr-hyper}
+\externaldocument{JASA_Supplement} % Do not include the .tex extension
+
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else  
+    % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\setcounter{secnumdepth}{5}
+% Make \paragraph and \subparagraph free-standing
+\makeatletter
+\ifx\paragraph\undefined\else
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}{
+    \@ifstar
+      \xxxParagraphStar
+      \xxxParagraphNoStar
+  }
+  \newcommand{\xxxParagraphStar}[1]{\oldparagraph*{#1}\mbox{}}
+  \newcommand{\xxxParagraphNoStar}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}{
+    \@ifstar
+      \xxxSubParagraphStar
+      \xxxSubParagraphNoStar
+  }
+  \newcommand{\xxxSubParagraphStar}[1]{\oldsubparagraph*{#1}\mbox{}}
+  \newcommand{\xxxSubParagraphNoStar}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+\makeatother
+
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+
+\addtolength{\oddsidemargin}{-.5in}%
+\addtolength{\evensidemargin}{-.1in}%
+\addtolength{\textwidth}{1in}%
+\addtolength{\textheight}{1.7in}%
+\addtolength{\topmargin}{-1in}
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{Table of contents}
+\else
+  \newcommand\contentsname{Table of contents}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{List of Figures}
+\else
+  \newcommand\listfigurename{List of Figures}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{List of Tables}
+\else
+  \newcommand\listtablename{List of Tables}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{Figure}
+\else
+  \newcommand\figurename{Figure}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{Table}
+\else
+  \newcommand\tablename{Table}
+\fi
+}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{Listing}
+\newcommand*\listoflistings{\listof{codelisting}{List of Listings}}
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+
+
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\usepackage[]{natbib}
+\bibliographystyle{agsm}
+\usepackage{bookmark}
+
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  pdftitle={Inequality of Opportunity under Complex Household Survey: Design-Consistent Inference with an Application to India},
+  pdfauthor={Francis Bilson Darku; Dweepobotee Brahma; Bhargab Chattopadhyay},
+  pdfkeywords={complex household survey, inequality, Gini index,
+stratified cluster sampling},
+  colorlinks=true,
+  linkcolor={blue},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={Blue},
+  pdfcreator={LaTeX via pandoc}}
+
+
+% Theorem-like environments with independent counters
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}{Corollary}
+\newtheorem{lemma}{Lemma}
+\newtheorem{proposition}{Proposition}
+
+% Definition-style environments with independent counters
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\newtheorem{example}{Example}
+\newtheorem{remark}{Remark}
+
+\newcommand{\anon}{0}
+
+%set the key \texttt{anon} to ``0'' to hide the authors and acknowledgements,
+%  producing the required anonymized version. 
+%Set the key \texttt{anon} to ``1'' to produce the manuscript with author details and
+% acknowledgments. 
+
+\begin{document}
+
+
+\def\spacingset#1{\renewcommand{\baselinestretch}%
+{#1}\small\normalsize} \spacingset{1}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\if1\anon
+{
+  \title{\bf Inequality of Opportunity under Complex Household Survey: Design-Consistent Inference with an Application to India}
+  \author{Francis Bilson Darku\\
+    Mendoza College of Business, University of Notre Dame
+    \vspace{0.3cm}\\
+    % and \\
+    Dweepobotee Brahma \\
+   School of Artificial Intelligence and Data Science\\
+   Indian Institute of Technology Jodhpur\vspace{0.3cm}\\
+   Bhargab Chattopadhyay\thanks{Corresponding author: bhargab@iitj.ac.in} \\
+   School of Management and Entrepreneurship\\
+   Indian Institute of Technology Jodhpur
+   }
+  \maketitle
+} \fi
+
+\if0\anon
+{
+  \bigskip
+  \bigskip
+  \bigskip
+  \begin{center}
+    {\LARGE\bf Inequality of Opportunity under Complex Household Survey: Design-Consistent Inference with an Application to India}
+\end{center}
+  \medskip
+} \fi
+
+\bigskip
+\begin{abstract}
+Inequality of opportunity (IOP) is a measure of how much of overall inequality is attributable to circumstances beyond an individual's control, such as family background or social identity, rather than to effort. IOP is generally computed using survey data. However, existing IOP estimators typically treat survey data as independent and identically distributed, ignoring the stratification, clustering, and unequal selection probabilities that characterize most large household surveys. We develop a design-consistent relative IOP estimator for complex survey data and derive its asymptotic distribution, providing a formal basis for inference on IOP levels,
+differences across populations, and the contribution of individual circumstances. We illustrate
+the framework using two rounds of India's National Sample Survey (NSS) to study inequality of
+opportunity in consumption expenditure. Comparing IOP across survey rounds and across rural and urban areas highlights changes in the contribution of circumstances, thereby revealing interesting patterns about the evolution of inequality of opportunity in India over a decade.
+\end{abstract}
+
+\noindent%
+{\it Keywords:} complex household survey, inequality, Gini index,
+stratified cluster sampling
+\vfill
+
+\newpage
+\spacingset{1.8} % DON'T change the spacing!
+
+%===============================================================================
+\section{Introduction}
+\label{sec:intro}
+%===============================================================================
+
+Inequality is often discussed in terms of unequal outcomes such as differences in income, wealth, education, or health. Yet not all inequalities are viewed as equally unfair. A growing body of research distinguishes between inequalities that arise from individual effort and those that stem from circumstances beyond a person's control.
+%, such as family background, place of birth, gender, or social identity. 
+This distinction lies at the heart of the concept of inequality of opportunity (IOP), which focuses on the extent to which life chances are shaped by factors individuals did not choose. Inequality of opportunity asks a simple question: how much of the observed inequality in any outcome across the population stems from factors outside individual control, called \textit{circumstances}, such as family background, place of residence, gender, or social identity \citep[e.g.,][]{roemer2015equality, ferreira2011measurement}? Inequality stemming from these circumstances is considered unfair. IOP, therefore, measures how much of the total observed inequality is attributable to circumstances. The lower the IOP value, the more equitable the society is.
+
+Household survey data have become a primary tool for studying these issues, as they contain rich information on both outcomes (such as income, consumption, or education) and circumstances (such as parental education, occupation, or location). \cite{ferreira2011measurement}, \cite{ASADULLAH20121151}, \cite{Brunori}, \cite{Ashish2011}, and \cite{lefranc2020inequality} construct IOP estimates using large-scale household surveys from across the world, which have rich information on circumstances. Examples include the World Bank's multi-country Living Standards Measurement Studies (LSMS), multi-country Demographic and Health Surveys (DHS), and country-specific ones such as the USA's Current Population Survey (CPS) and India's National Sample Surveys. These surveys are typically conducted under complex sampling designs involving stratification, clustering, and unequal probabilities of selection \citep[e.g.,][]{lohr2021sampling}.
+
+Despite using complex household survey data, most existing approaches to measuring IOP implicitly assume that survey observations are independent and identically distributed (i.i.d.). Standard estimators of IOP are constructed by first defining an ``opportunity distribution'' by smoothing outcomes across groups defined by observed circumstances, followed by computing an inequality index on this distribution \citep[e.g.,][]{ferreira2011measurement, lefranc2009equality}. While this approach has become standard, it does not account for the sampling design that generated the data. When data arise from multi-stage designs with clustering and stratification, estimators that ignore survey weights generally fail to be design-consistent \citep[e.g.,][]{Binder1995estimating}. Moreover, conventional variance estimators substantially underestimate sampling variability in the presence of intra-cluster correlation, leading to invalid confidence intervals and hypothesis tests \citep[e.g.,][]{skinner1989analysis, lee2005analyzing}. To our knowledge, no
+existing work has developed a formal design-based framework for estimation and inference of IOP that accounts for stratification, clustering, and unequal selection probabilities. Consequently, there is currently no principled basis for conducting hypothesis tests or constructing confidence intervals for IOP measures computed from complex household surveys.
+
+This gap has direct policy consequences. Many substantive questions about IOP concern comparisons rather than point estimates. For instance, researchers and policymakers typically want to know whether inequality of opportunity has changed over time, whether it differs across regions or
+demographic groups, or whether it responds to policy interventions
+\citep[e.g.,][]{ferreira2011measurement, ASADULLAH20121151}. A society can be considered as moving toward greater fairness if its relative IOP falls over time, yet without a valid test of significance, an observed decline could simply reflect sampling noise rather than a genuine improvement in the opportunity structure. Similarly, comparing IOP across sectors such as rural and urban areas matters for targeting: if household circumstances account for a significantly larger share of consumption inequality in rural areas than in urban ones, this points to distinct structural barriers that call for differentiated policy responses. Inference on IOP also plays a central role in assessing the relative importance of specific circumstances, by evaluating whether differences in IOP across subpopulations (or changes arising from alternative counterfactual constructions that exclude particular circumstances) are statistically significant \citep[e.g.,][]{Brunori, lefranc2009equality}. In particular, identifying the contribution of a specific circumstance (such as caste, religion, or place of birth), and testing whether that contribution has changed across survey rounds is directly relevant for evaluating affirmative action policies or other government interventions aimed at reducing inequality rooted in social identity. Without valid hypothesis tests, observed differences in IOP cannot be distinguished from sampling noise, limiting the reliability of
+conclusions drawn from complex household survey data. To address this, we develop a measure of relative IOP taking into account the complex nature of household surveys. We derive the appropriate asymptotic distribution theory and compute the standard errors that account for the sample design effects. We illustrate this measure with two rounds of the Indian National Sample Survey dataset to construct both the naive and our proposed measures of relative IOP. We also illustrate the effects on the standard errors of the estimates due to the stratum and the cluster structure of the sample design. We use our measure of relative IOP to demonstrate how to measure the contribution of a specific circumstance, and to compare the contribution of a specific circumstance across survey rounds. 
+
+Although the empirical illustration focuses on IOP, the proposed framework applies more broadly to inequality functionals and ratio-type estimands computed from complex survey data \citep[e.g.,][]{cowell2011measuring}. The results are therefore relevant for a wide range of applications in which distributional measures are estimated from stratified and clustered samples, including poverty measurement, welfare analysis, and design-based inequality analysis.
+
+
+%Inequality of Opportunity (IOP) reveal how much of the total observed inequality is attributable to inequality of opportunity arising from circumstances. The lower the proportion of total inequality attributable to unfair inequality of opportunity, the more equitable the society is. IOP is an appealing idea since it has its roots in the concepts of distributive justice and has the underlying connotation of "giving everybody a fair chance''. IOP is commonly measured by using a set of circumstances to predict an outcome of interest (e.g. earnings, consumption, education) and calculating the inequality in the predicted outcomes. Higher divergence in these predicted outcomes implies higher influence of the pre-determined circumstances in overall inequality. IOP is useful in policymaking in several ways \citep{WagstaffKanbur2015}. IOP helps policymakers identify the most vulnerable sections of the population and help decide how to target social protection programs. Comparisons of IOP estimates across regions or over time helps evaluate the success of existing policies and design new ones.  
+
+%A growing body of studies analyze IOP across multiple economies and a range of outcomes. \citet{ferreira2011measurement} capture IOP using between-group inequality when groups are defined exclusively on the basis of predetermined circumstances. They apply their measure to six Latin American countries. They found that inequality of opportunity shares ranged from one quarter to one half of total consumption inequality. They also found that ethnic origin and the geography of birth were markedly more important as determinants of opportunity deprivation than of outcome poverty, particularly in Brazil, Guatemala, and Peru. \citet{Brunori} estimate and compare IOP across 31 European countries. \citet{ASADULLAH20121151} analyze inequality of opportunity in education in different states in India. \citet{Ashish2011} measure the inequality of opportunity in consumption and earnings for Indian men. \citet{kundu2023} analyzes inequality of opportunity in elementary level school education using household survey data using NSSSO rounds between 2004 and 2012. She finds a low IOP of timely beginning of schooling but a high IOP of timely completion of schooling. 
+
+%All of these studies which estimate IOP across different economies do so using large household surveys as they are good sources of these predetermined circumstances. Examples of these household surveys include World Bank's multi country Living Standards Measurement Studies (LSMS), multi-country Demographic and Health Surveys (DHS) and country-specific ones such as USA's Current Population Survey (CPS) and India's National Sample Surveys (NSS). These household surveys usually have some complex survey designs comprising stratification and clustering at various levels. Stratification refers to the process by which the original population is first divided into several subgroups based on some meaningful characteristic such as urban or rural areas prior to sampling. Sampling is done separately within each of these stratum. Clustering refers to sampling of a number of physically contiguous group of households within a stratum such as villages in rural areas or blocks in urban areas. Most large household survey designs involve first stratifying the population based on a criteria (e.g. area of residence) and then randomly sampling a large number of clusters within each selected strata and subsequently randomly sampling a number of households within each cluster. It is widely known that not considering the survey design in estimating any statistic can produce inconsistent estimates of the population parameter as well as inconsistent standard errors of these estimates. 
+
+%In this study, we develop a modified measure of relative IOP taking into account the complex nature of household surveys. We derive the appropriate asymptotic distribution theory and compute the standard errors appropriate for the sample design effects. We illustrate this measure with two rounds of the Indian National Sample Survey dataset to construct both the naive measures of relative IOP and our proposed measure of relative IOP. We also illustrate the effects of the standard errors of the estimates due to the stratum and the cluster structure of the sample design. 
+
+This study contributes to the literature in several ways. First, to our knowledge, this is the first paper to propose an IOP measure that takes into account the effects of the sample design of common household surveys. Second, we derive the asymptotic distribution theory of the relative IOP estimator. This allows researchers using our proposed measure of relative IOP to go beyond constructing stand-alone estimates to conduct statistical inference on them. The ability to conduct hypothesis tests on IOP estimates has important policy relevance as it allows researchers to compare IOP across regions and time to evaluate the efficacy of any government policy aimed at reducing economic inequality. Third, using our constructed measure of relative IOP, we illustrate how to measure the contribution of a circumstance to IOP and test whether its contribution changes over survey rounds. 
+
+The rest of the paper is as follows. Section~\ref{sec:survey_design} introduces the inference problem, develops the asymptotic theory, and reports the results of a simulation study to explore the properties of the proposed estimator and the associated inference procedures. Section~\ref{sec:Data} describes the data used for the empirical illustration. Section~\ref{sec:Results} discusses the estimates and results of hypothesis testing for empirical illustration. Section~\ref{sec:conclusion} concludes with a discussion on policy relevance.
+
+The methods developed in this article are implemented in the \textsf{R} package \texttt{iopr} (\url{https://github.com/FBDjnr/iopr}). Code and outputs that reproduce all results are provided in a separate replication repository (\url{https://github.com/FBDjnr/relative-iop-replication}); see the Supplementary Materials.
+
+%===============================================================================
+\section{Survey Design and Estimator of IOP}
+\label{sec:survey_design}
+%===============================================================================
+
+\cite{ferreira2011measurement} proposed a widely used non-parametric approach to measure inequality of opportunity (IOP). The central idea is that observed inequality in an outcome can be decomposed into two components: (i) inequality arising from circumstances, that is, factors beyond an individual’s control, such as parental background, gender, or ethnicity, and (ii) inequality due to effort and other idiosyncratic factors. Formally, outcomes are generated according to
+\begin{align}
+y=f(\bm{C},\bm{e})    
+\end{align}
+where $C$ denotes circumstances and $e$ denotes effort. The relative IOP measure is defined as the share of total inequality explained by circumstances,
+$IOP=\theta_r=\theta_a/\theta$, where $\theta=I(X)$ is an inequality index based on actual outcomes, and $\theta_a=I(\hat{X})$ is the same index evaluated on the opportunity distribution, obtained by replacing individual outcomes with type-specific means defined by circumstances. 
+
+Despite their widespread use, existing IOP measures presented in works such as \cite{lefranc2020inequality}, \cite{ferreira2011measurement}, and others have not taken into account the sampling design of household surveys. This omission is potentially consequential, as most official household surveys rely on complex designs involving stratification, clustering, and unequal probabilities of selection. In what follows, we extend the standard IOP framework by developing estimators that explicitly account for these design features.
+
+We consider a finite population partitioned into 
+$S$ strata, indexed by $s=1,2,...,S$. Each stratum 
+$s$ contains $H_s$ clusters, indexed by $c_s=1,\ldots,H_s$. Therefore, the total number of clusters in the population is given by $H=\sum_{s=1}^{S}H_s$. Within the $c_s^{\text{th}}$ cluster of stratum $s$, suppose there are $M_{sc_s}$ households. The total number of households in stratum $s$ is therefore $M_s=\sum_{c_s=1}^{H_s} M_{sc_s} $, and the total number of households in the population is given by $M=\sum_{s=1}^S M_s =\sum_{s=1}^S\sum_{c_s=1}^{H_s} M_{sc_s}$.
+
+For estimation purposes in such complex survey designs, a sample of $n_s$ clusters is selected from the $s^{\text{th}}$ stratum by simple random sampling. A simple random sample of $k$ households is then drawn (without replacement) from each of the selected clusters. Let the total number of clusters being selected from the population be denoted by
+\begin{equation}\label{eq:n-ns-as}
+n=\sum_{s=1}^{S}n_s \quad\text{with}\quad n_s=a_sn\quad \text{and}\quad 
+a_s=\frac{H_s}{H}.
+\end{equation}
+Thus, the total number of households in the sample will be $kn=k\sum_{s=1}^Sn_s$. Note that the circumstances in each household are not the same in a region, be it a village or a town. %Suppose there are $C$ different circumstances.
+
+Let $X_{sc_sh}$ denote the outcome of interest for household $h$ in cluster $c_s$ of stratum $s$, and let $\bm{C}_{sc_sh}$ 
+denote the associated vector of circumstances. Because inclusion probabilities vary across households under this design, 
+sampling weights are required to obtain unbiased estimators of population quantities. 
+Following standard survey sampling theory \citep[e.g.,][and others]{Binder1995estimating, Horvitz1952, Lee2006}, each household is assigned a weight equal to the inverse of its probability of selection. For the present design, the household-level weight proposed by \cite{Bhattacharya2007} is given by
+\begin{align}
+\label{eq:weight}
+W_{sc_sh}=\frac{M_{sc_s}H_s}{kn_s}\nu_{sc_sh},
+\end{align}
+where $\nu_{sc_sh}$ denotes the number of individuals in household $h$.
+%With the presence of stratification and clustering, the households are assigned different weights $W_{sc_sh}$ as the probability of inclusion in the sample will vary. The assigned weight to the selected household is computed as the inverse of the probability of inclusion of the household in the sample \citep[][and others]{Binder1995estimating, Horvitz1952, Lee2006}. If researchers wish to increase (or decrease) the representation of a subgroup of the population that is of interest, they can employ oversampling (or undersampling) procedures and use appropriate weighting techniques. \citet{Wells1998} discussed several weighting methods for such cases.
+These weights depend solely on the sampling design and are independent of household circumstances. In large populations, the distinction between sampling clusters with or without replacement becomes asymptotically negligible, a result noted by \citet{Bhattacharya2004, Bhattacharya2007}. This observation is particularly relevant for large-scale household surveys, where the number of clusters per stratum is typically substantial.
+
+Let $W=\sum_{s=1}^{S}\sum_{c_s=1}^{n_s}\sum_{h=1}^{k}W_{sc_sh}$
+denote the total of per-household weights associated with the survey, and define normalized weights $w_{sc_sh}=W^{-1}W_{sc_sh}$. Using these weights, the cumulative distribution function $F(x)$ of the outcome which appropriately accounts for differential household sizes and selection probabilities can be estimated as $\hat{F}\left(x\right) = \sum_{s=1}^{S} \sum_{c_s=1}^{n_s} \sum_{h=1}^{k}
+w_{sc_sh}\mathbf{1}\left(X_{sc_sh}\leq x\right)$. The function $\mathbf{1}(\cdot)$ represents the indicator function.
+%\begin{align*}
+%\hat{\mu} &= \sum_{s=1}^{S} \sum_{c_s=1}^{n_s} \sum_{h=1}^{k} 
+%w_{sc_sh}x_{sc_sh}\quad\text{and}\\
+%\hat{F}\left(x\right) &= \sum_{i=1}^{S} \sum_{j=1}^{n_s} \sum_{l=1}^{k} 
+%w_{ijl}\mathbf{1}\left(x_{ijl}\leq x\right),
+%\end{align*}
+Total inequality is then estimated using the weighted Gini index, which can be expressed equivalently as the solution to the regression equation
+\begin{align}
+    (2\hat{F}(X_{sc_sh})-1)\sqrt{w_{sc_sh}X_{sc_sh}}=\theta \sqrt{w_{sc_sh}X_{sc_sh}}+u_{sc_sh}
+\end{align}
+This yields the estimator
+\begin{equation}
+\hat{\theta}\equiv \hat{I}({X}_{sc_sh}) = 1 - \frac{2}{\hat{\mu}} \sum_{s=1}^{S} \sum_{c_s=1}^{n_s} 
+\sum_{h=1}^{k} w_{sc_sh}X_{sc_sh} \left( 1 - \hat{F}\left(X_{sc_sh}\right)\right),
+\label{eq:GiniIndexEst}
+\end{equation} 
+where
+\begin{align}
+\hat{\mu}=\sum_{s=1}^{S}\sum_{c_s=1}^{n_s}\sum_{h=1}^{k}w_{sc_sh}X_{sc_sh}.    
+\end{align}
+This estimator coincides with the design-consistent Gini index studied in \cite{bilson2020gini} and captures inequality arising from both circumstances and effort.
+%Using assumptions provided in \cite{Bhattacharya2007} or (AN1)--(AN12) of \cite{shivam2026asymptotic}, we have the central limit theorem of the Gini index ($\hat{\theta}$).
+\begin{lemma}
+\label{lem:clt_theta}
+Under assumptions in \cite{Bhattacharya2007} or (AN1)--(AN12) of \cite{shivam2026asymptotic}, as $n_s\to\infty$,
+$\sqrt n(\hat\theta-\theta)\xrightarrow{D}\mathcal N(0,\xi^2)$.
+\end{lemma}
+
+%Now, note that \citet{peragine2015equality} proposed an inequality of opportunity concept that an outcome (i.e., $X_{sc_sh}$) is determined by two factors - circumstances ($\bm{C}$) and efforts ($\bm{e}$). The vector $\bm{C}$ represents a set of factors that are outside the scope of individual control, and the vector $\bm{e}$ is a set of factors that are within the control of an individual. That is, $X_{sc_sh}$ is a function of $\bm{C}$ and $\bm{e}$. 
+To isolate inequality attributable to circumstances alone, we adopt the parametric smoothing approach of \citet{ferreira2011measurement}. Specifically, we assume a log-linear relationship between outcomes and explanatory variables,
+\begin{align}
+\label{eq:param_eq}
+    \ln X_{sc_sh}=\bm{\beta}^T\bm{C}_{sc_sh} + \bm{e}_{sc_sh}, 
+\end{align}
+where $\bm{e}_{sc_sh}$ represents effort and other residual factors. Predicted outcomes are obtained as
+\begin{align}
+\label{eq:smoothed_eq}
+    \hat{X}_{sc_sh} = \exp\left(\hat{\bm{\beta}}^T\bm{C}_{sc_sh}\right)
+\end{align}
+and the absolute inequality of opportunity is measured as the inequality in these predicted outcomes. The corresponding estimator is
+\begin{equation}
+\hat{\theta}_a\equiv \hat{I}(\hat{X}_{sc_sh}) = 1 - \frac{2}{\hat{\mu}_a} \sum_{s=1}^{S} \sum_{c_s=1}^{n_s} 
+\sum_{h=1}^{k} w_{sc_sh}\hat{X}_{sc_sh} \left( 1 - \hat{F}\left(\hat{X}_{sc_sh}\right) 
+\right), 
+\label{eq:IOP1Est}
+\end{equation}
+where
+\begin{align}
+\hat{\mu}_a=\sum_{s=1}^{S} \sum_{c_s=1}^{n_s} 
+\sum_{h=1}^{k} w_{sc_sh}\hat{X}_{sc_sh}.
+\end{align}
+The associated central limit theorem for $\hat{\theta}_a$ is
+\begin{lemma}
+\label{lem:clt_theta_a}
+Under the conditions in Lemma~\ref{lem:clt_theta}, as $n_s\to\infty$, 
+$\sqrt n(\hat\theta_a-\theta_a)\xrightarrow{D}\mathcal N(0,\xi_a^2)$.
+\end{lemma}
+
+% $\bar{C}_i$ is the average circumstances across the data and estimates of the elements are denoted with \textit{hat} symbol. This eliminates the differences in circumstances by plugging in their average values. 
+%Thus, $I(\hat{X}_{sc_sh})$ is the estimate of absolute inequality of opportunity reflecting the degree of inequality that would persist if all individuals exerted the same level of effort, with variation arising only from circumstances. An estimated absolute inequality of opportunity, that is the inequality in predicted outcomes that arises exclusively from variation in circumstances, holding efforts constant is given as 
+Finally, the relative share of inequality of opportunity in total inequality is estimated as
+\begin{align}
+\hat{\theta}_r=\frac{\hat{\theta}_a}{\hat{\theta}}=\frac{\hat{I}(\hat{X}_{sc_sh})}{\hat{I}({X}_{sc_sh})}.
+\label{eq:IOP2Est}
+\end{align}
+The associated central limit theorem for the relative IOP estimator $\hat{\theta}_r$ is given by
+\begin{theorem}
+\label{thm:clt_theta_r}
+Under the conditions of Lemma~\ref{lem:clt_theta}, as $n_s\to\infty$,
+$\sqrt n(\hat\theta_r-\theta_r)\xrightarrow{D}
+\mathcal N(0,\varrho^2)$,
+where $\varrho^2 = \frac{1}{\theta^2}\xi_a^2 
++ \frac{\theta_a^2}{\theta^4}\xi^2 
+- \frac{2\theta_a\eta}{\theta^3}$.
+\end{theorem}
+The proofs of Theorem~\ref{thm:clt_theta_r} and the associated Lemma~\ref{lem:clt_theta_a} are provided in the supplementary file along with the consistent estimator of $\varrho^2$.
+
+The expressions of the consistent estimators of the variance and covariance parameters --- $\xi^2, \xi^2_a$, $\eta$, and $\varrho^2$ are provided in Section~\ref{ssec:consist_est} of the supplementary file. The relative IOP estimator introduced in \eqref{eq:IOP2Est} takes into account the stratified and clustered nature of complex household surveys. Although this design-consistent formulation ensures that point estimates of total inequality and inequality of opportunity are properly weighted, meaningful empirical analysis requires more than point estimation alone. In particular, policy-relevant comparisons of inequality of opportunity across populations, regions, or survey rounds necessitate a formal framework for statistical inference that accounts for sampling variability induced by the survey design. %The next section, therefore, develops the asymptotic distribution theory of the proposed estimators, providing the basis for hypothesis testing and confidence interval construction for both absolute and relative measures of inequality of opportunity.
+
+\subsection{Simulation Evidence}
+A simulation study based on a synthetic population of $60{,}000$ households (details in Section~\ref{sec:simulation} of the Supplementary file) was conducted. First, we find that the relative IOP estimator ($\hat{\theta}_r$) is consistent: both the bias and the root mean squared error decline as the number of sampled clusters increases, with the estimates converging toward the true population value at sample sizes comparable to those of large-scale national household surveys. Second, the naive SRS-based standard error is consistently smaller than the design-based standard error, confirming that ignoring the survey design understates sampling variability. Third, the nominal $95\%$ Wald-type confidence intervals constructed from the design-based standard error achieve near-nominal coverage at large sample sizes, whereas those based on the naive SRS-based standard error under-cover at all sample sizes considered. Fourth, the two-sample test is approximately correctly sized under the null hypothesis, and its power increases as either the true IOP difference or the number of sampled clusters increases. That is, the test becomes better at detecting real differences in relative IOP as either quantity grows, indicating that survey samples of the size typically used in national household surveys have sufficient statistical power to identify meaningful changes in inequality of opportunity.
+
+%===============================================================================
+\section{Data}
+\label{sec:Data}
+%===============================================================================
+
+For empirical illustration, we use two rounds of the household consumption expenditure survey data by the National Sample Survey Office in India---one conducted over 2007--2008 and another conducted over 2023--2024. This household survey follows the sampling strategy outlined in the aforementioned theoretical discussion and thus is an appropriate demonstration for the results. The empirical analysis draws on two rounds of the Household Expenditure Survey (2007--2008 and 2023--2024) conducted by the National Sample Survey Office, publicly available from the Ministry of Statistics and Programme Implementation; see the Supplementary Materials for access details and links.
+
+Table~\ref{tab:circumstances} presents a detailed description of the variables considered as circumstances here. We include circumstances of religion and social groups, the main employment sector of the household, the type of dwelling and the amount of land possessed by the household. Table~\ref{tab:circumstances_desc} presents the distribution of these circumstance variables for the two rounds of data. Between 2007--2008 and 2023--2024 survey rounds, the proportion of owned dwelling decreased slightly from 87.68\% to 84.19\%, while the incidence of rented or hired dwelling rose from 10.69\% to 13.99\%. There were some compositional changes in the amount of land possessed by households across these rounds. The highest proportion of households (19.09\%) possessed land between 0.005 and 0.01 hectares in 2007--2008, while the highest proportion (37.90\%) possessed land between 0.02 and 0.20 hectares in 2023--2024. Hindus are the largest religious group, followed by Muslims, Christians, and other minority religions. The Constitution of India lists certain historically disadvantaged castes and communities as requiring special consideration. They are called the Scheduled Castes, Scheduled Tribes, and Other Backward Classes. These communities saw small compositional shifts across the two rounds largely maintaining their proportions in the sample.
+The primary occupation of the households is an important circumstance in determining inequality of opportunity since the sector of employment determines earnings, which in turn determines consumption. In the 2007--2008 round, self-employment in agriculture was the dominant household occupation in rural areas, accounting for 32.07\% of households, while non-agricultural labor represented the smallest rural employment category at 4.10\%. However, the years between the two rounds saw a movement in rural areas away from agriculture. The proportion of households self-employed in agriculture fell to 19.14\% by the 2023--2024 round, while that in non-agricultural labor rose to 18.35\%. The proportion of households employed in different employment sectors in the urban areas remained largely similar. Rural areas saw a decline in unemployment, while urban areas saw a rise in unemployment across these two rounds.
+
+\begin{table}[htbp]
+    \centering
+    \caption{Circumstance variables}
+    \input{../output/tables/tab_circumstance_variables}
+    \label{tab:circumstances}
+\end{table}
+
+\begin{table}[htbp]
+    \centering
+    \caption{Distribution of circumstance variables for Indian NSS: 2007--2008 vs 2023--2024}
+    \input{../output/tables/tab_circumstance_variable_desc}
+    \label{tab:circumstances_desc}
+\end{table}
+
+In addition to computing the relative IOP for the entire survey dataset, we will also report the results for six other states, namely: Uttar Pradesh, Maharashtra, Bihar, West Bengal, Madhya Pradesh, and Rajasthan. We restrict state-level analysis to the above-mentioned states as these are the six most populous states in India, which together account for over 50\% of the national population and span diverse agro-climatic, economic, and social conditions. This selection ensures that the findings are both policy-relevant and statistically reliable, given the sample sizes available within each state. Tables~\ref{tab:summary_stats_nss_2007} and~\ref{tab:summary_stats_nss_2024} present summary statistics for total household expenditure from the Indian National Sample Survey (NSS) conducted in 2007--2008 and 2023--2024, respectively, allowing for comparison across time, states, and rural-urban sectors. Columns (1) and (2) of the tables report the state and sector, respectively. In column (3), the total number of households for the specified region in the given survey is reported. Column (4) has the average household expenditure, while column (5) has the weighted average household expenditure, with the weights being the survey weights provided by the Indian National Sample Survey Office (NSSO). Column (6) provides the corresponding standard deviation of the household expenditure. As already noted in Table~\ref{tab:circumstances_desc}, the sample sizes for each geographical region were increased in the 2023--2024 survey.  Overall, there is a substantial increase in household expenditures over the period (without taking inflation into consideration). For all states combined, the average expenditure rose from 16,368.31 in 2007--2008 to 43,274.71 in 2023--2024, while the weighted average increased from 9,917.63 to 41,453.90. Similar upward trends are observed across all listed states, namely, Uttar Pradesh, Maharashtra, Bihar, West Bengal, Madhya Pradesh, and Rajasthan, with urban households consistently exhibiting higher average expenditures than rural households in both years. The rural-urban expenditure gap also appears to persist or widen in several states; for example, in Maharashtra, the urban average increased from 23,838.55 to 68,866.57, compared with an increase from 13,287.38 to 35,283.18 in rural areas. In addition, standard deviations are notably larger in 2023--2024 across most states and sectors, suggesting greater dispersion in household expenditures relative to 2007--2008. Overall, the comparison indicates substantial growth in expenditure levels alongside persistent rural-urban disparities and increased variability across households.
+
+\begin{table}[h]
+    \centering
+    \caption{Summary statistics for Indian NSS 2007--2008 total household expenditure}
+    \input{../output/tables/tab_nss64_summary_stats_results}    
+    \label{tab:summary_stats_nss_2007}
+\end{table}
+
+\begin{table}[h]
+    \centering
+    \caption{Summary statistics for Indian NSS 2023--2024 total household expenditure}
+    \input{../output/tables/tab_nss_hce23_24_summary_stats_results}    
+    \label{tab:summary_stats_nss_2024}
+\end{table}
+
+
+%===============================================================================
+\section{Results}
+\label{sec:Results}
+%===============================================================================
+
+\subsection{IOP estimates}
+\label{ssec:iop_est}
+
+We estimate the inequality of opportunity in total household consumption at the national level and for a few populous states in India, disaggregated by rural and urban samples. 
+Table~\ref{tab:naive_vs_wtd_nss_2007} presents the results from the 2007--2008 round, while Table~\ref{tab:naive_vs_wtd_nss_2024} presents the results from the 2023--2024 round. Columns (3) to (5) of both tables present the estimates of the naive measures of IOP (i.e., without using the survey weights), while columns (6) to (8) present the weighted measures of IOP following our methodology. 
+
+\begin{landscape}
+\begin{table}
+    \centering
+    \caption{Unweighted and weighted estimates of relative IOP for total household expenditure due to circumstances for NSS 2007--2008}
+    % \begin{adjustbox}{max totalsize={1\linewidth}{1\textheight},center}
+    \input{../output/tables/tab_nss64_iop_naive_vs_wtd}    
+    % \end{adjustbox}
+    \label{tab:naive_vs_wtd_nss_2007}
+\end{table}
+
+\begin{table}
+    \centering
+    \caption{Unweighted and weighted estimates of relative IOP for total household expenditure due to circumstances for NSS 2023--2024}
+    % \begin{adjustbox}{max totalsize={1\linewidth}{1\textheight},center}
+    \input{../output/tables/tab_nss_hce23_24_iop_naive_vs_wtd}  
+    % \end{adjustbox}
+    \label{tab:naive_vs_wtd_nss_2024}
+\end{table}
+\end{landscape}
+
+Between the two survey rounds, the total inequality in the country fell from 0.67 to 0.53. During this time, absolute IOP fell from 0.37 to 0.30 while relative IOP slightly increased from 0.55 to 0.56. However, in rural areas, while absolute inequality and absolute IOP decreased, relative IOP increased from 0.49 to 0.51. In the urban areas too, a decrease in total inequality and absolute IOP was accompanied by an increase in relative IOP from 0.45 to 0.51. Since relative IOP is the share of IOP in the total inequality, an increase in relative IOP over time is concerning from an economic perspective. It implies that circumstances beyond individual control play a larger role in shaping overall inequality.
+
+In the most populous state of Uttar Pradesh, the overall absolute IOP decreased from 0.32 to 0.28 while relative IOP increased from 0.53 to 0.58. The rural areas of Uttar Pradesh saw an increase in relative IOP from 0.52 to 0.56, while the urban areas saw a decrease in relative IOP from 0.52 to 0.48. Maharashtra experienced a decrease in absolute IOP but an increase in relative IOP between these two rounds. Notably, this divergence was not an artifact of shifting rural--urban composition: both the rural and urban areas of Maharashtra independently exhibited the same decline in absolute IOP and rise in relative IOP. Bihar saw an overall decrease in IOP between the two rounds. Its rural areas also witnessed an overall decrease in IOP, whereas its urban areas witnessed a decrease in absolute IOP but an increase in relative IOP. In the case of West Bengal, there was a decrease in absolute IOP but an increase in relative IOP. Rural areas also saw a decrease in absolute IOP and an increase in relative IOP, while urban areas saw an increase in both absolute IOP and relative IOP. Madhya Pradesh saw a decrease in absolute IOP but an increase in relative IOP. This pattern was also reflected in the rural and urban areas. In contrast to the other large states, Rajasthan experienced an overall decrease in both absolute and relative IOP, even though both its rural and urban areas saw increases in each. Thus, across most states, relative IOP shows an increase between the two survey rounds. Are these increases all statistically significant? 
+
+
+% cluster_impact = sqrt(var_naive + var_cluster)/se_naive - 1,
+% stratum_impact = sqrt(var_naive + var_stratum)/se_naive - 1,
+% total_impact = se_correct/se_naive - 1
+
+Tables~\ref{tab:design_effect_nss_2007} and~\ref{tab:design_effect_nss_2024} examine the effect of the complex survey design on the estimated standard errors of the relative IOP for NSS 2007--2008 and 2023--2024, respectively. Column (3) reports the weighted estimates of relative IOP for each state and sector. Columns (4) and (5) present two alternative estimates of the standard error for the same parameter: the correct standard error, which accounts for the survey's stratified and clustered sampling design, and the naive standard error, which ignores these design features. Comparing these two columns highlights the extent to which ignoring the sampling structure may distort inference.
+Columns (6)--(8) decompose the contribution of different components of the survey design to the overall standard error. Column (6) reports the percentage change in the estimated standard errors attributable to stratification. It is calculated as the difference between the standard error obtained when stratification is ignored and the naive standard error, expressed as a percentage of the naive standard error. The values in this column are generally negative, indicating that stratification tends to reduce standard errors relative to the naive estimates. For example, in Table~\ref{tab:design_effect_nss_2024}, stratification reduces the standard error for the relative IOP estimate in Uttar Pradesh by $4.45\%$, while for Madhya Pradesh it is $4.67\%$. Similar patterns are observed in Table~\ref{tab:design_effect_nss_2007}; for instance, the stratification effect on standard error is $-9.36\%$ for Uttar Pradesh and $-11.90\%$ for Bihar. These negative values imply that ignoring stratification would lead to an overestimation of the standard errors. 
+Column (7) reports the percentage change in the estimated standard errors attributable to clustering. This is calculated analogously as the difference between the standard error obtained when clustering is ignored and the naive standard error, divided by the naive standard error. In contrast to stratification effects, clustering effects are generally positive and often substantially larger. For example, in Table~\ref{tab:design_effect_nss_2024}, the clustering effect for urban Uttar Pradesh is as high as $72.17\%$, while for Madhya Pradesh it is $45.40\%$. Even at the national level, clustering increases standard error by about 27--29\%. A similar though somewhat smaller pattern appears in Table~\ref{tab:design_effect_nss_2007}, where clustering raises standard errors by $12.53\%$ for Uttar Pradesh and $18.46\%$ for urban Madhya Pradesh. These results indicate that ignoring clustering could lead to a substantial underestimation of the true standard errors.
+Finally, column (8) reports the overall design effect, defined as the percentage difference between the correct and naive standard errors. This column summarizes the combined impact of stratification and clustering. For example, in Table~\ref{tab:design_effect_nss_2024} the total design effect for all of India is $28.13\%$, indicating that the correct standard error is roughly 28\% larger than the naive estimate. The effect is particularly pronounced in some urban sectors, such as urban Uttar Pradesh, where the total design effect reaches $68.72\%$. In comparison, the overall design effects in Table~\ref{tab:design_effect_nss_2007} are generally smaller; for instance, the national total design effect is $6.62\%$. Taken together, the tables indicate that clustering is the dominant contributor to design effects, while stratification tends to partially offset this increase by reducing standard errors.
+
+\begin{table}
+    \centering
+    \caption{Effect of complex household survey structure on standard errors of IOP: NSS 2007--2008}  
+    \input{../output/tables/tab_nss64_iop_design_effect}      
+    \label{tab:design_effect_nss_2007}
+\end{table}
+
+\begin{table}
+    \centering
+    \caption{Effect of complex household survey structure on standard errors of IOP: NSS 2023--2024}
+    \input{../output/tables/tab_nss_hce23_24_iop_design_effect}    
+    \label{tab:design_effect_nss_2024}
+\end{table}
+
+\subsection{Hypothesis Testing}
+\label{ssec:hyp_test}
+
+We use the asymptotic distribution theory derived earlier to conduct hypothesis tests to compare the IOP estimates over the two rounds. A society can be considered as moving toward equality if, over time, its relative IOP falls, i.e., the contribution of circumstances toward overall inequality falls. The alternative hypothesis is set to reflect this as
+$ H_{1}: IOP_{2007} > IOP_{2023} $ for a given region. The importance of assessing the observed changes in relative IOP over the two survey rounds can be appreciated better by recalling the differences in sample sizes between the two survey rounds. The sample size for the 2023--2024 round is close to six times that of the 2007--2008 round (see Table~\ref{tab:circumstances_desc}). Formal hypothesis tests ensure that in situations such as ours with vastly different sample sizes, observed differences do not reflect differences in sample sizes or sampling variation.
+
+Table~\ref{tab:hyp_test_time} presents the results of conducting these tests. Most populations show a negative difference in relative IOP over the two rounds implying an increase in relative IOP in the 2023--2024. Intuitively, this implies that over the time covered by the two survey rounds, the role played by household circumstances in explaining inequality increased. In other words, the economy became more unfair. However, this increase is not statistically significant. The exceptions are the overall population and the rural subpopulation of Bihar, which witnessed a statistically significant decrease in relative IOP during this time. This finding is unsurprising given the consistent economic growth Bihar has witnessed over these two decades (\cite{Sharma2015}).
+
+%For the overall population of Bihar and the rural population in Bihar, we see that the relative IOP had a decline that was statistically significant. For two other subpopulations -- urban sample of Uttar Pradesh and overall sample in Rajasthan -- our estimates suggest that there was a decline in relative IOP, but that decline wasn't statistically significant. In contrast, across most other sub-samples there was a statistically significant increase in relative IOP. Intuitively, this implies that over the time covered by the two survey rounds, the role played by household circumstances in explaining inequality increased. In other words, the economy got more unfair. 
+
+Table~\ref{tab:hyp_test_sector} presents the results of hypothesis tests comparing the null hypothesis of equality of IOP across rural and urban areas against the two-sided alternative of inequality $H_{1}: IOP_{rural} \neq IOP_{urban}$. We are unable to reject the null hypothesis of equality for most sub-samples across both rounds. In Maharashtra, the rural subsample has a significantly higher relative IOP than the urban subsample across both survey rounds. Additionally, the rural subsample has a higher relative IOP than the urban subsample for Bihar in 2007--2008 and for Uttar Pradesh in 2023--2024. Intuitively, a statistically significant positive gap in relative IOP between rural and urban areas indicates that household circumstances account for a larger share of inequality in consumption expenditure in rural areas than in urban ones. Put differently, rural areas appear to be relatively less fair than their urban counterparts.
+
+
+\begin{table}
+    \centering
+    \caption{Test for a decrease in relative IOP from 2007--2008 to 2023--2024}
+    \input{../output/tables/tab_hyp_test_results_time}    
+    \label{tab:hyp_test_time}
+\end{table}
+
+\begin{table}
+    \centering
+    \caption{Test for difference in relative IOP between rural and urban sectors}
+    \input{../output/tables/tab_hyp_test_results_sector}    
+    \label{tab:hyp_test_sector}
+\end{table}
+
+%Which of the circumstances contributed significantly to the IOP
+\subsection{Contribution of Circumstances}
+\label{ssec:contrib_circum}
+In comparing and assessing IOP across regions and time, the contribution of a particular circumstance toward relative IOP is of particular importance. It allows us to identify potential targets for policy intervention and estimate the impact of specific public policies on reducing relative IOP. For instance, policymakers may be interested in knowing the contribution of social factors such as religion or caste toward IOP so that they can assess the impact of affirmative action policies on IOP. To measure the contributions of each circumstance to our measure of relative IOP, we conduct an ablation study. 
+
+In the ablation study, each circumstance is removed one at a time, and the relative IOP for a given region is re-estimated. The contribution of a circumstance to the relative IOP is then measured as the percentage change in relative IOP. This is calculated as the difference between the re-estimated and baseline values, expressed as a percentage of the baseline estimate. A larger percentage change, therefore, indicates a greater contribution of that circumstance to the relative IOP. Table~\ref{tab:pc_iop_nss_2007} illustrates the percentage changes in relative IOP for each region for each circumstance for the 2007--2008 round of the survey, while Table~\ref{tab:pc_iop_nss_2024} illustrates the same for the 2023--2024 round of the survey.  
+
+\begin{landscape}
+\begin{table}[h]
+    \centering
+    \caption{Percentage change in IOP when a given circumstance variable is not accounted for in the NSS 2007--2008 round data}
+    \input{../output/tables/tab_nss64_ablation_pc_iop}    
+    \label{tab:pc_iop_nss_2007}
+\end{table}
+
+\begin{table}[h]
+    \centering
+    \caption{Percentage change in IOP when a given circumstance variable is not accounted for in the NSS 2023--2024 data}
+    \input{../output/tables/tab_nss_hce23_24_ablation_pc_iop}    
+    \label{tab:pc_iop_nss_2024}
+\end{table}
+\end{landscape}
+
+At the national level, the contribution of socio-economic characteristics such as religion and social group (defined by caste category) fell, suggesting a shift toward a more equitable society. Household type (which measured the employment sector), amount of land possessed, and the type of dwelling also decreased in their contribution toward relative IOP over the two survey rounds. Interestingly, household size increases its contribution to relative IOP over this period, rising from 0.88\% to 22.83\% at the all-India level. It is important to note here that in an ablation exercise, the contributions of the circumstances do not have to add up to 100\%. Hence, a decrease in the contribution of one circumstance does not, by design, lead to an increase in the contribution of another.
+
+Table~\ref{tab:pc_iop_nss_2007} illustrates that at the aggregate population level, for both the national level and individual states, the circumstance capturing household type has the highest contribution to relative IOP. Interestingly, in the urban populations of most states (except West Bengal), the caste categories (denoted by social group here) have the highest contribution among all the circumstances. This is in line with some findings in development economics by \cite{Asher2026}, which finds significant segregation by religion and social groups in urban areas. Table~\ref{tab:pc_iop_nss_2024} illustrates the share of each circumstance using a similar ablation exercise on the 2023--2024 survey round. Across nearly all the subsamples, there is a substantial decline in the contribution of all circumstances and a large increase in the contribution of household size.
+
+\subsection{Test of Significance of Contribution of Circumstances}
+\label{ssec:sign_contrib_circum}
+We test whether the change in the contribution of a given circumstance across the two rounds is statistically significant through a stratified cluster bootstrap. Specifically, we put the two datasets across the survey rounds together and create a harmonized stratum by assigning a state-sector level ID for each stratum. Then, for each ablation scenario, state, and sector, bootstrap samples are constructed separately for each survey round (2007--2008 and 2023--2024) by resampling primary sampling units (clusters) with replacement within each harmonized stratum. The number of clusters drawn within each stratum is fixed to match the observed number of clusters in that stratum and survey year, thereby preserving the original survey design. Within each bootstrap replicate, sampling weights are re-scaled at the stratum level so that the total weight within each stratum remains unchanged. The relative IOP is then re-estimated using the ablated set of circumstances (i.e., excluding one circumstance at a time) for each round of the survey. We then calculate the difference ($D$) in percentage change in relative IOP estimates between the two survey rounds due to excluding that circumstance variable. We repeat this procedure over 999 bootstrap iterations to generate an empirical sampling distribution of the difference under each ablation scenario. With this empirical distribution, we can find the significance level of the observed difference ($d^*$) by finding the proportion of bootstrap results that exceed the observed difference (i.e., $P(|D| \geq |d^*|)$).
+
+% In each case, we take the $Diff = Contr. \ to \ Relative \ IOP_{2023} - Contr. \ to \ Relative \ IOP_{2007}$. 
+
+The observed differences in percentage change in relative IOP estimate due to a circumstance and their statistically significant results are reported in Table~\ref{tab:bootstrap_abl_results}. Although we see some large changes across the populations over the two survey rounds, only a handful of circumstances show a statistically significant difference in their contribution to relative IOP. Nationally, the overall sample and both the rural and urban subsamples show a statistically significant increase in the contribution of household size to relative IOP over the two survey rounds. The difference in the contribution of household size is also statistically significant in several of the larger states---Uttar Pradesh, Madhya Pradesh, and Rajasthan. The decrease in the contribution of household type between the two survey rounds is also statistically significant in a few cases: the national population, the rural subpopulation, and the state populations of Bihar and West Bengal. Notably, the largely consistent decreases in the contribution of religion, social group, land possession, and dwelling type over the two survey rounds, as illustrated in Table~\ref{tab:pc_iop_nss_2007} and Table~\ref{tab:pc_iop_nss_2024}, are not statistically significant. This reveals that there was no material reduction in the contribution of social circumstances of religion and caste groups toward relative IOP over these years.
+
+\begin{landscape}
+\begin{table}
+    \centering
+    \caption{Test for Significant Difference Between Ablation Results for NSS 2007--2008 and NSS 2023--2024}
+    \label{tab:bootstrap_abl_results}
+    \input{../output/tables/tab_boot_ablation_pc_iop}
+\end{table}
+\end{landscape}
+
+
+%===============================================================================
+\section{Concluding Discussion}
+\label{sec:conclusion}
+%===============================================================================
+
+In this paper, we develop a measure of relative inequality of opportunity that accounts for the complex survey design of most large household surveys. We then derive the asymptotic distribution theory for this measure, enabling hypothesis testing and statistical inference. Finally, we apply an ablation method to construct an empirical measure of each circumstance's contribution to relative IOP, again supporting formal hypothesis testing and inference.
+
+We draw on two rounds of household survey data from India’s National Sample Survey to provide an empirical illustration of the proposed measure, holding the set of circumstances constant across rounds. In general, rural areas appear to be relatively less fair than their urban counterparts, indicating a greater role for circumstances in shaping inequality in rural settings. A comparison over time shows an increase in relative IOP, pointing to a shift toward a less fair economy. During this time, many large states exhibit a significant increase in the contribution of household size to relative IOP. Future studies can use more formal causal designs in conjunction with our proposed measure of relative IOP to estimate the causal effect of specific policies on IOP as well as the contribution of a particular circumstance to IOP.
+
+In our empirical example, we use consumption expenditure as the outcome to construct IOP estimates. Consumption expenditure provides a reasonable measure of a household's command over private goods and is often a more reliable measure of household well-being when income data are hard to obtain, such as in the agricultural sector or lower and middle-income countries. However, our approach is agnostic to outcomes and can be applied to any outcome when constructing IOP measures. Similarly, the underlying theoretical results and asymptotic properties are developed for a certain structure of stratified sampling commonly used across many household surveys. It can also be easily adapted to other household surveys with similar sampling strategies. 
+
+We also note that the construction of the IOP relied on the log-linear relationship between expenditure and circumstances proposed by \cite{ferreira2011measurement}. However, this does not affect the asymptotic distribution of the relative IOP, as the log-linear relationship can be replaced by any parametric or non-parametric approach for smoothing the outcome variable.
+
+
+% \begin{figure}
+%     \centering
+%     \includegraphics[width=1\linewidth]{figures/fig_conf_int.pdf}
+%     \caption{\label{fig:conf_int}Point estimate of relative inequality of opportunity in household consumption expenditure (with 95\% confidence intervals) by state and sector, NSS 2007--2008 and 2023--2024 rounds.}
+% \end{figure}
+
+%===============================================================================
+\section{Disclosure statement}
+\label{disclosure-statement}
+%===============================================================================
+
+The authors have no conflicts of interest to declare.
+
+%===============================================================================
+\section{Code and Data Availability Statement}
+\label{data-availability-statement}
+%===============================================================================
+
+\phantomsection\label{supplementary-material}
+\bigskip
+
+\begin{description}
+\item[\textsf{R} package \texttt{iopr}:] \textsf{R} package implementing the
+relative inequality-of-opportunity measure and the associated inference
+procedures developed in the article. Publicly available at
+\url{https://github.com/FBDjnr/iopr}. (GNU zipped tar file)
+
+\item[Replication materials:] Code, data-processing scripts, and output
+files that reproduce all tables and figures in the article, available at
+\url{https://github.com/FBDjnr/relative-iop-replication}.
+
+\item[Data:] The analysis uses two rounds of the Household Consumer
+Expenditure Survey conducted by the National Sample Survey Office (NSSO).
+Both the microdata and the accompanying survey documentation are publicly
+available, free of charge, from the Ministry of Statistics and Programme
+Implementation (MoSPI), Government of India, through its National Data
+Archive microdata portal. Access requires a free one-time registration and
+acceptance of the portal's data-use agreement; datasets are then provided
+as compressed archives in several formats (including CSV and Stata). The
+individual survey rounds are available at:
+\begin{itemize}
+    \item 2007--2008 Round: \url{https://microdata.gov.in/NADA/index.php/catalog/116}
+    \item 2023--2024 Round: \url{https://microdata.gov.in/NADA/index.php/catalog/237}
+\end{itemize}
+Because the portal's terms of use do not permit redistribution of the raw
+microdata, our replication repository provides the data-processing and
+analysis scripts together with instructions for obtaining the source data,
+rather than the microdata itself.
+\end{description}
+
+%===============================================================================
+\bibliography{IOPBib.bib}
+%===============================================================================
+
+\end{document}

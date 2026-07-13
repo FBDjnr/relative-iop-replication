@@ -1,0 +1,59 @@
+"SE_Estimator","Empirical_Coverage","Coverage_minus_95pct","Mean_CI_Width","NC"
+"Design-Based (Jackknife)",0.887,-0.063,0.18573,50
+"Naive (SRS Bootstrap)",0.8716,-0.0784,0.17633,50
+"Design-Based (Jackknife)",0.8954,-0.0546,0.15236,75
+"Naive (SRS Bootstrap)",0.8834,-0.0666,0.1448,75
+"Design-Based (Jackknife)",0.9046,-0.0454,0.13215,100
+"Naive (SRS Bootstrap)",0.8922,-0.0578,0.12575,100
+"Design-Based (Jackknife)",0.9132,-0.0368,0.11853,125
+"Naive (SRS Bootstrap)",0.899,-0.051,0.11273,125
+"Design-Based (Jackknife)",0.9148,-0.0352,0.1083,150
+"Naive (SRS Bootstrap)",0.9038,-0.0462,0.103,150
+"Design-Based (Jackknife)",0.9292,-0.0208,0.10047,175
+"Naive (SRS Bootstrap)",0.915,-0.035,0.0955,175
+"Design-Based (Jackknife)",0.9258,-0.0242,0.09411,200
+"Naive (SRS Bootstrap)",0.911,-0.039,0.08953,200
+"Design-Based (Jackknife)",0.9244,-0.0256,0.08882,225
+"Naive (SRS Bootstrap)",0.911,-0.039,0.08451,225
+"Design-Based (Jackknife)",0.9254,-0.0246,0.08417,250
+"Naive (SRS Bootstrap)",0.9108,-0.0392,0.08015,250
+"Design-Based (Jackknife)",0.932,-0.018,0.08042,275
+"Naive (SRS Bootstrap)",0.9164,-0.0336,0.07657,275
+"Design-Based (Jackknife)",0.9346,-0.0154,0.07704,300
+"Naive (SRS Bootstrap)",0.9226,-0.0274,0.07329,300
+"Design-Based (Jackknife)",0.9348,-0.0152,0.07396,325
+"Naive (SRS Bootstrap)",0.9228,-0.0272,0.07045,325
+"Design-Based (Jackknife)",0.934,-0.016,0.07131,350
+"Naive (SRS Bootstrap)",0.9196,-0.0304,0.06788,350
+"Design-Based (Jackknife)",0.9324,-0.0176,0.0689,375
+"Naive (SRS Bootstrap)",0.92,-0.03,0.06561,375
+"Design-Based (Jackknife)",0.9386,-0.0114,0.06674,400
+"Naive (SRS Bootstrap)",0.9276,-0.0224,0.06364,400
+"Design-Based (Jackknife)",0.9362,-0.0138,0.06471,425
+"Naive (SRS Bootstrap)",0.926,-0.024,0.06162,425
+"Design-Based (Jackknife)",0.9386,-0.0114,0.06297,450
+"Naive (SRS Bootstrap)",0.9268,-0.0232,0.05994,450
+"Design-Based (Jackknife)",0.9412,-0.0088,0.06129,475
+"Naive (SRS Bootstrap)",0.9282,-0.0218,0.05838,475
+"Design-Based (Jackknife)",0.941,-0.009,0.05972,500
+"Naive (SRS Bootstrap)",0.9282,-0.0218,0.05694,500
+"Design-Based (Jackknife)",0.9452,-0.0048,0.05831,525
+"Naive (SRS Bootstrap)",0.9338,-0.0162,0.05555,525
+"Design-Based (Jackknife)",0.9432,-0.0068,0.05697,550
+"Naive (SRS Bootstrap)",0.9328,-0.0172,0.05424,550
+"Design-Based (Jackknife)",0.948,-0.002,0.05575,575
+"Naive (SRS Bootstrap)",0.9354,-0.0146,0.05317,575
+"Design-Based (Jackknife)",0.9422,-0.0078,0.05457,600
+"Naive (SRS Bootstrap)",0.9312,-0.0188,0.05202,600
+"Design-Based (Jackknife)",0.9464,-0.0036,0.05343,625
+"Naive (SRS Bootstrap)",0.9356,-0.0144,0.05102,625
+"Design-Based (Jackknife)",0.942,-0.008,0.05239,650
+"Naive (SRS Bootstrap)",0.9352,-0.0148,0.05001,650
+"Design-Based (Jackknife)",0.951,0.001,0.05143,675
+"Naive (SRS Bootstrap)",0.9416,-0.0084,0.04908,675
+"Design-Based (Jackknife)",0.9516,0.0016,0.0505,700
+"Naive (SRS Bootstrap)",0.9406,-0.0094,0.04818,700
+"Design-Based (Jackknife)",0.9496,-4e-04,0.04962,725
+"Naive (SRS Bootstrap)",0.937,-0.013,0.04741,725
+"Design-Based (Jackknife)",0.9554,0.0054,0.04883,750
+"Naive (SRS Bootstrap)",0.9448,-0.0052,0.04664,750

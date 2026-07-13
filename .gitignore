@@ -1,6 +1,7 @@
-# --- R ---
-.Rhistory
-.RData
+# --- R session cruft (root-level only; do NOT ignore the curated
+#     simulation .RData artifacts under code/simulation/) ---
+/.Rhistory
+/.RData
 .Rproj.user/
 .Ruserdata
 .Renviron
@@ -11,9 +12,25 @@
 Thumbs.db
 *~
 
-# --- Licensed / raw survey microdata: do NOT commit to a public repo ---
-/data/raw/**
-/data/external/**
-# ...but keep the empty folder structure
-!/data/raw/.gitkeep
-!/data/external/.gitkeep
+# --- LaTeX build artifacts (the .bbl is kept so the manuscript compiles
+#     without re-running BibTeX) ---
+*.aux
+*.log
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.blg
+*.out
+*.toc
+*.lof
+*.lot
+
+# --- Data: NOT committed to this public repo. ---
+# The analysis uses licensed NSS microdata (and derived aggregates) that
+# cannot be redistributed. See data/README.md for how to obtain the raw
+# data and regenerate the derived files. The folder skeleton is kept via
+# .gitkeep so the pipeline's expected paths exist after cloning.
+data/**
+!data/**/
+!data/**/.gitkeep
+!data/README.md

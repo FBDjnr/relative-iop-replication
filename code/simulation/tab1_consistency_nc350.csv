@@ -1,0 +1,11 @@
+"Statistic","Value"
+"True omega_r",0.357059
+"Mean estimate (omega_r_hat)",0.366479
+"Bias  (mean - true)",0.009421
+"% Relative bias",2.638
+"RMSE",0.019132
+"Monte-Carlo Std Dev",0.016653
+"Mean SE  (Design-Based Jackknife)",0.018191
+"Mean SE  (Naive SRS Bootstrap)",0.017316
+"Mean Design Effect (DEFF)",1.1106
+"Mean sample size (HH per rep)",2800
