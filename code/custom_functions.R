@@ -86,87 +86,6 @@ bootstrap_sample <- function(stratum, cluster, data) {
 
 
 #::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-# Data Preparation: Numbering Strata, clusters and hh_ids Appropriately ####
-#::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-## Attach Cluster size, No of Hseholds, and HoseHold Sizes to Data##
-
-prep_data <- function(x, stratum = NULL, cluster = NULL, hh_id = NULL,
-                      hh_size = NULL, circumstances = NULL,
-                      weight = NULL,  data = NULL){
-  
-  # x: observations
-  # stratum: corresponding stratum IDs for x
-  # cluster: corresponding cluster IDs for x
-  # hh_id: corresponding household IDs for x
-  # hh_size: number of household members
-  # circumstances:
-  # weight: corresponding weights for x
-  # data: name of dataset
-  
-  if(!require(tidyverse)){install.packages("tidyverse"); library(tidyverse)}
-  
-  # Extracting columns from the dataset
-  var.name <- deparse(substitute(x))
-  if (grepl("\\$", var.name)) {
-    var.name <- strsplit(var.name, "\\$")[[1]][2]
-    }
-  
-  if(!is.null(data)){
-    x <- eval(substitute(x), data, parent.frame())
-    stratum <- eval(substitute(stratum), data, parent.frame())
-    cluster <- eval(substitute(cluster), data, parent.frame())
-    hh_id <- eval(substitute(hh_id), data, parent.frame())
-    hh_size <- eval(substitute(hh_size), data, parent.frame())
-    circumstances <- eval(substitute(circumstances), data, parent.frame())
-    weight <- eval(substitute(weight), data, parent.frame())
-  }
-  
-  
-  # Filling in missing columns
-  n <- length(x)
-  ones <- rep(1, n)
-  if (is.null(stratum)) {stratum <- ones}
-  if (is.null(cluster)) {cluster <- ones}
-  if (is.null(hh_id)) {hh_id <- 1:n}
-  if (is.null(hh_size)) {hh_size <- ones}
-  if (is.null(weight)) {weight <- hh_size}
-  
-  dta <- data.frame(stratum, cluster, hh_id, hh_size, circumstances, weight, x)
-  
-  # combine duplicate households
-  dta <- dta %>%
-    dplyr::group_by(stratum, cluster, hh_id) %>%
-    dplyr::summarise(x = sum(x, na.rm = TRUE),
-                     hh_size = mean(hh_size, na.rm = TRUE),
-                     circumstances = min(circumstances, na.rm = TRUE),
-                     weight = mean(weight, na.rm = TRUE),
-                     .groups = "keep") %>%
-    dplyr::ungroup()
-  
-  # number of clusters per strata (H_s)
-  dta <- dta %>%
-    dplyr::group_by(stratum) %>%
-    dplyr::mutate(H_s = count.unique(cluster)) %>%
-    dplyr::ungroup()
-  
-  # number of households per cluster per stratum (M_scs)
-  dta <- dta %>%
-    dplyr::group_by(stratum, cluster) %>%
-    dplyr::mutate(M_scs = count.unique(hh_id)) %>%
-    dplyr::ungroup()
-  
-  # Final data
-  dta <- dta %>%
-    dplyr::select(stratum, cluster, hh_id, hh_size, circumstances, weight, x,
-                  H_s, M_scs) %>%
-    dplyr::arrange(stratum, cluster, hh_id, circumstances) %>%
-    dplyr::rename_with(~ gsub("^x$", var.name, .x))
-  
-  return(dta)
-}
-
-
-#::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 # Gini index and variance for Complex Survey ####
 #::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -1248,26 +1167,6 @@ iop_rel_var_bstr <- function(x, stratum = NULL, cluster = NULL, weight = NULL,
   theta.cov <- sum((thetastar[[1]] - theta$iop_muhat) * (thetastar[[2]] - theta$iop_total))/nboot
   
   ans <- list(est = theta$iop_r, var = theta.var, theta.cov = theta.cov, thetastar = thetastar)
-  
-  return(ans)
-}
-
-
-#::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-# Optimal Sample Size ####
-#::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-n_opt <- function(alpha, beta, H0, H1, sd){
-  
-  # alpha: Type I error rate
-  # beta: Type II error rate
-  # H0: null value
-  # H1: 
-  # sd: standard deviation
-  
-  delta <- (H1 - H0)/sd
-  
-  ans <- ((qnorm(alpha/2) + qnorm(1 - beta))/delta)^2
   
   return(ans)
 }
