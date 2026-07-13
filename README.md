@@ -48,19 +48,19 @@ After placing the raw data (see `data/README.md`):
 
 ```r
 # 1. Build the derived household-level data  ->  data/processed/
-source("Clean and Aggregate NSS64 Data.R")
-source("Clean and Aggregate NSS-HCES23-24 Data.R")
+source("clean_and_aggregate_nss64_data.R")
+source("clean_and_aggregate_nss_hces23_24_data.R")
 
-# 2. Main empirical application (each sources "Application of Gini and IOP.R",
+# 2. Main empirical application (each sources "application_of_gini_and_iop.R",
 #    which writes the per-survey tables + intermediate CSVs to output/tables/)
-source("Application to NSS64.R")
-source("Application to NSS-HCES23-24.R")
+source("application_to_nss64.R")
+source("application_to_nss_hces23_24.R")
 
 # 3. Circumstance distribution, hypothesis tests, bootstrap ablation
 source("circumstance_variable_desc.R")
 source("hypothesis_testing.R")
-source("bootstrap_ablation_study_H0.R")
-source("bootstrap_ablation_study_H0_pvalues_ci.R")
+source("bootstrap_ablation_study_h0.R")
+source("bootstrap_ablation_study_h0_pvalues_ci.R")
 ```
 
 Then build the documents (from `manuscript/`):
@@ -76,19 +76,25 @@ latexmk -pdf JASA_IOP_Complex_Survey.tex
 |---|---|
 | `tab_circumstance_variables` | *static* (hand-authored variable definitions) |
 | `tab_circumstance_variable_desc` | `circumstance_variable_desc.R` |
-| `tab_{nss64,nss_hce23_24}_summary_stats_results` | `Application of Gini and IOP.R` |
-| `tab_{nss64,nss_hce23_24}_iop_naive_vs_wtd` | `Application of Gini and IOP.R` |
-| `tab_{nss64,nss_hce23_24}_iop_design_effect` | `Application of Gini and IOP.R` |
-| `tab_{nss64,nss_hce23_24}_ablation_pc_iop` | `Application of Gini and IOP.R` |
+| `tab_{nss64,nss_hce23_24}_summary_stats_results` | `application_of_gini_and_iop.R` |
+| `tab_{nss64,nss_hce23_24}_iop_naive_vs_wtd` | `application_of_gini_and_iop.R` |
+| `tab_{nss64,nss_hce23_24}_iop_design_effect` | `application_of_gini_and_iop.R` |
+| `tab_{nss64,nss_hce23_24}_ablation_pc_iop` | `application_of_gini_and_iop.R` |
 | `tab_hyp_test_results_time`, `tab_hyp_test_results_sector` | `hypothesis_testing.R` |
-| `tab_boot_ablation_pc_iop` | `bootstrap_ablation_study_H0*.R` |
-| Supplement simulation tables/figures | `code/simulation/` |
+| `tab_boot_ablation_pc_iop` | `bootstrap_ablation_study_h0*.R` |
+| Supplement simulation tables | `code/simulation/` |
 
 ## Simulation study
 
-`code/simulation/` contains the finite-sample simulation used in the supplement,
-including the HPC (SLURM array) driver scripts, the per-configuration outputs
-(`*_nc<clusters>` = number of clusters per stratum), the combined summary CSVs,
-and the plotting scripts (`plot_tab*.R`). The full study is designed to run on a
-cluster; the tables and figures can be regenerated from the combined summary
-CSVs with the plotting scripts without re-running every replication.
+`code/simulation/` contains the finite-sample simulation behind the supplement's
+three tables. Each driver `iop_sim_pop1_nc<NC>.R` runs 5,000 replications on the
+fixed synthetic population `synpop1.csv` for a given number of clusters per
+stratum `NC`, and writes the per-configuration result CSVs:
+
+- `tab1_consistency_nc<NC>.csv` — finite-sample performance / design effect
+- `tab2_coverage_nc<NC>.csv` — Wald CI coverage and mean width
+- `tab3_type1_power_nc<NC>.csv`, `tab3_power_detail_nc<NC>.csv` — two-sample Wald test rejection rates
+
+Only the four configurations reported in the supplement are kept:
+`NC = 50, 75, 100, 500` (total clusters 100, 150, 200, 1000). The supplement
+tables report these CSVs' values; results reproduce up to Monte-Carlo noise.

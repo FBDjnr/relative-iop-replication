@@ -1,3 +1,0 @@
-"SE_Estimator","Empirical_Coverage","Coverage_minus_95pct","Mean_CI_Width"
-"Design-Based (Jackknife)",0.9362,-0.0138,0.06471
-"Naive (SRS Bootstrap)",0.926,-0.024,0.06162

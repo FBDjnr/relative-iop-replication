@@ -42,10 +42,10 @@ data/
   processed/                   # created by the cleaning scripts (see below)
 ```
 
-`State Codes and Names.csv` ships with the NSS download.
-`item_codes_for_consumption_and_expenditure.csv` is the author-supplied item
-classification for the HCES consumption modules — request it from the authors if
-you do not have it.
+The two small lookup tables — `State Codes and Names.csv` (state code ↔ name)
+and `item_codes_for_consumption_and_expenditure.csv` (HCES item classification) —
+**are included in this repository** under `data/raw/`, so you only need to add
+the licensed level files. Everything else in `data/` is git-ignored.
 
 ## Regenerating the derived data
 

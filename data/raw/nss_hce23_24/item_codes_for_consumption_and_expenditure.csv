@@ -1,0 +1,43 @@
+item_code,item,item_sub_type,item_type
+99,sports goods,pc,expenditure
+129,cereals,cfptif,consumption
+139,cereal substitute,cfptif,consumption
+159,pulses & products,cfptif,consumption
+169,milk & milk products,cfptif,consumption
+179,salt & sugar,cfptif,consumption
+189,edible oil,cfptif,consumption
+199,"egg, fish & meat",cfptif,consumption
+219,vegetables,cfptif,consumption
+239,fruits (fresh),cfptif,consumption
+249,fruits (dry),cfptif,consumption
+269,spices,cfptif,consumption
+279,beverages,cfptif,consumption
+289,served processed food,cfptif,consumption
+299,packaged processed food,cfptif,consumption
+309,pan,cfptif,consumption
+319,tobacco,cfptif,consumption
+329,intoxicants,cfptif,consumption
+349,fuel and light,cfptif,consumption
+379,clothing,cbf,consumption
+389,bedding etc.,cbf,consumption
+399,footwear,cbf,consumption
+409,education,emm,expenditure
+419,medical (hospitalization),emm,expenditure
+429,medical (non-hospitalization),emm,expenditure
+439,entertainment,emm,expenditure
+459,toilet articles,emm,expenditure
+479,other household consumables,emm,expenditure
+499,consumer services excl. conveyance,emm,expenditure
+519,conveyance,emm,expenditure
+529,rent,emm,expenditure
+539,"house rent, garage rent (imputed)",emm,expenditure
+559,furniture & fixtures,pc,expenditure
+569,goods for recreation,pc,expenditure
+579,crockery & utensils,pc,expenditure
+599,cooking & other household appliances,pc,expenditure
+609,transport equipment,pc,expenditure
+619,medical equipment,pc,expenditure
+629,personal goods,pc,expenditure
+639,"residential building, land and other durables",pc,expenditure
+649,jewellery & ornaments,pc,expenditure
+899,other consumer taxes &cesses,emm,expenditure
