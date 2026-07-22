@@ -12,14 +12,24 @@ methods, and applies them to two rounds of India's National Sample Survey.
 ```
 code/                 R scripts for the empirical application
   simulation/         Simulation study (HPC artifacts) behind the supplement
+  sync_manuscript_assets.R  Copies output/ tables & figures into manuscript/
 data/                 Data folder skeleton (contents git-ignored; see data/README.md)
   raw/                Licensed NSS microdata goes here (not distributed)
   processed/          Derived household-level aggregates (created by the code)
-output/
-  tables/             Generated LaTeX tables (\input by the manuscript) + result CSVs
+output/               Assets produced by the code (self-contained for code/)
+  tables/             Generated LaTeX tables + their result CSVs
   figures/            Generated figures
-manuscript/           Manuscript + supplement (LaTeX sources, .bib, .bst, PDFs)
+manuscript/           Self-contained manuscript (compiles on its own)
+  tables/             Duplicate of output/tables/*.tex, \input by the .tex
+  figures/            Duplicate of output/figures/*
+  *.tex, *.bib, *.bst, *.pdf, latexmkrc
 ```
+
+The `manuscript/` folder is **self-contained**: it carries its own copies of the
+LaTeX tables and figures, so it can be zipped and compiled anywhere without the
+rest of the repository. Those copies are duplicates of what the code writes to
+`output/`; `code/sync_manuscript_assets.R` refreshes them (it only copies into
+`manuscript/`, and never modifies the analysis scripts or `output/`).
 
 ## Data
 
@@ -61,9 +71,13 @@ source("circumstance_variable_desc.R")
 source("hypothesis_testing.R")
 source("bootstrap_ablation_study_h0.R")
 source("bootstrap_ablation_study_h0_pvalues_ci.R")
+
+# 4. Refresh the manuscript's own copies of the tables/figures
+source("sync_manuscript_assets.R")
 ```
 
-Then build the documents (from `manuscript/`):
+Then build the documents (from `manuscript/`). The folder is self-contained, so
+this works even on a standalone copy of `manuscript/`:
 
 ```bash
 latexmk -pdf JASA_Supplement.tex          # compile first (cross-references)
