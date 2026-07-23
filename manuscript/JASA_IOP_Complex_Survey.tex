@@ -6,7 +6,7 @@
 \documentclass[12pt]{article}
 
 \usepackage{amsfonts,amstext,amsfonts,amsmath,amssymb,amsthm,mathtools,bm}
-\usepackage{booktabs}
+\usepackage{booktabs,threeparttable}
 \usepackage{adjustbox,makecell, enumitem}
 \usepackage{pdflscape}
 \usepackage{setspace}
@@ -187,6 +187,16 @@ stratified cluster sampling},
 %Set the key \texttt{anon} to ``1'' to produce the manuscript with author details and
 % acknowledgments. 
 
+% --- Tighten white space around and inside table/figure floats --------------
+% Body text stays at \spacingset{1.8}; only the floats are compacted.
+% \setlength{\textfloatsep}{8pt plus 2pt minus 2pt}   % gap between float and text
+% \setlength{\floatsep}{8pt plus 2pt minus 2pt}       % gap between two floats
+% \setlength{\intextsep}{8pt plus 2pt minus 2pt}      % gap around [h]/[H] floats
+% \setlength{\abovecaptionskip}{4pt}
+% \setlength{\belowcaptionskip}{2pt}
+% \AtBeginEnvironment{table}{\setstretch{1}}          % single-space table bodies
+% \AtBeginEnvironment{figure}{\setstretch{1}}
+
 \begin{document}
 
 
@@ -239,7 +249,7 @@ stratified cluster sampling
 \vfill
 
 \newpage
-\spacingset{1.8} % DON'T change the spacing!
+\spacingset{1.75} % DON'T change the spacing!
 
 %===============================================================================
 \section{Introduction}
@@ -410,14 +420,14 @@ Table~\ref{tab:circumstances} presents a detailed description of the variables c
 The primary occupation of the households is an important circumstance in determining inequality of opportunity since the sector of employment determines earnings, which in turn determines consumption. In the 2007--2008 round, self-employment in agriculture was the dominant household occupation in rural areas, accounting for 32.07\% of households, while non-agricultural labor represented the smallest rural employment category at 4.10\%. However, the years between the two rounds saw a movement in rural areas away from agriculture. The proportion of households self-employed in agriculture fell to 19.14\% by the 2023--2024 round, while that in non-agricultural labor rose to 18.35\%. The proportion of households employed in different employment sectors in the urban areas remained largely similar. Rural areas saw a decline in unemployment, while urban areas saw a rise in unemployment across these two rounds.
 
 \begin{table}[htbp]
-    \centering
+    \centering\small
     \caption{Circumstance variables}
     \input{tables/tab_circumstance_variables}
     \label{tab:circumstances}
 \end{table}
 
 \begin{table}[htbp]
-    \centering
+    \centering\small
     \caption{Distribution of circumstance variables for Indian NSS: 2007--2008 vs 2023--2024}
     \input{tables/tab_circumstance_variable_desc}
     \label{tab:circumstances_desc}
@@ -426,7 +436,7 @@ The primary occupation of the households is an important circumstance in determi
 In addition to computing the relative IOP for the entire survey dataset, we will also report the results for six other states, namely: Uttar Pradesh, Maharashtra, Bihar, West Bengal, Madhya Pradesh, and Rajasthan. We restrict state-level analysis to the above-mentioned states as these are the six most populous states in India, which together account for over 50\% of the national population and span diverse agro-climatic, economic, and social conditions. This selection ensures that the findings are both policy-relevant and statistically reliable, given the sample sizes available within each state. Tables~\ref{tab:summary_stats_nss_2007} and~\ref{tab:summary_stats_nss_2024} present summary statistics for total household expenditure from the Indian National Sample Survey (NSS) conducted in 2007--2008 and 2023--2024, respectively, allowing for comparison across time, states, and rural-urban sectors. Columns (1) and (2) of the tables report the state and sector, respectively. In column (3), the total number of households for the specified region in the given survey is reported. Column (4) has the average household expenditure, while column (5) has the weighted average household expenditure, with the weights being the survey weights provided by the Indian National Sample Survey Office (NSSO). Column (6) provides the corresponding standard deviation of the household expenditure. As already noted in Table~\ref{tab:circumstances_desc}, the sample sizes for each geographical region were increased in the 2023--2024 survey.  Overall, there is a substantial increase in household expenditures over the period (without taking inflation into consideration). For all states combined, the average expenditure rose from 16,368.31 in 2007--2008 to 43,274.71 in 2023--2024, while the weighted average increased from 9,917.63 to 41,453.90. Similar upward trends are observed across all listed states, namely, Uttar Pradesh, Maharashtra, Bihar, West Bengal, Madhya Pradesh, and Rajasthan, with urban households consistently exhibiting higher average expenditures than rural households in both years. The rural-urban expenditure gap also appears to persist or widen in several states; for example, in Maharashtra, the urban average increased from 23,838.55 to 68,866.57, compared with an increase from 13,287.38 to 35,283.18 in rural areas. In addition, standard deviations are notably larger in 2023--2024 across most states and sectors, suggesting greater dispersion in household expenditures relative to 2007--2008. Overall, the comparison indicates substantial growth in expenditure levels alongside persistent rural-urban disparities and increased variability across households.
 
 \begin{table}[h]
-    \centering
+    \centering\small
     \caption{Summary statistics for Indian NSS 2007--2008 total household expenditure}
     \input{tables/tab_nss64_summary_stats_results}    
     \label{tab:summary_stats_nss_2007}
@@ -451,9 +461,9 @@ In addition to computing the relative IOP for the entire survey dataset, we will
 We estimate the inequality of opportunity in total household consumption at the national level and for a few populous states in India, disaggregated by rural and urban samples. 
 Table~\ref{tab:naive_vs_wtd_nss_2007} presents the results from the 2007--2008 round, while Table~\ref{tab:naive_vs_wtd_nss_2024} presents the results from the 2023--2024 round. Columns (3) to (5) of both tables present the estimates of the naive measures of IOP (i.e., without using the survey weights), while columns (6) to (8) present the weighted measures of IOP following our methodology. 
 
-\begin{landscape}
+% \begin{landscape}
 \begin{table}
-    \centering
+    \centering\small
     \caption{Unweighted and weighted estimates of relative IOP for total household expenditure due to circumstances for NSS 2007--2008}
     % \begin{adjustbox}{max totalsize={1\linewidth}{1\textheight},center}
     \input{tables/tab_nss64_iop_naive_vs_wtd}    
@@ -462,14 +472,14 @@ Table~\ref{tab:naive_vs_wtd_nss_2007} presents the results from the 2007--2008 r
 \end{table}
 
 \begin{table}
-    \centering
+    \centering\small
     \caption{Unweighted and weighted estimates of relative IOP for total household expenditure due to circumstances for NSS 2023--2024}
     % \begin{adjustbox}{max totalsize={1\linewidth}{1\textheight},center}
     \input{tables/tab_nss_hce23_24_iop_naive_vs_wtd}  
     % \end{adjustbox}
     \label{tab:naive_vs_wtd_nss_2024}
 \end{table}
-\end{landscape}
+% \end{landscape}
 
 Between the two survey rounds, the total inequality in the country fell from 0.67 to 0.53. During this time, absolute IOP fell from 0.37 to 0.30 while relative IOP slightly increased from 0.55 to 0.56. However, in rural areas, while absolute inequality and absolute IOP decreased, relative IOP increased from 0.49 to 0.51. In the urban areas too, a decrease in total inequality and absolute IOP was accompanied by an increase in relative IOP from 0.45 to 0.51. Since relative IOP is the share of IOP in the total inequality, an increase in relative IOP over time is concerning from an economic perspective. It implies that circumstances beyond individual control play a larger role in shaping overall inequality.
 
@@ -486,14 +496,14 @@ Column (7) reports the percentage change in the estimated standard errors attrib
 Finally, column (8) reports the overall design effect, defined as the percentage difference between the correct and naive standard errors. This column summarizes the combined impact of stratification and clustering. For example, in Table~\ref{tab:design_effect_nss_2024} the total design effect for all of India is $28.13\%$, indicating that the correct standard error is roughly 28\% larger than the naive estimate. The effect is particularly pronounced in some urban sectors, such as urban Uttar Pradesh, where the total design effect reaches $68.72\%$. In comparison, the overall design effects in Table~\ref{tab:design_effect_nss_2007} are generally smaller; for instance, the national total design effect is $6.62\%$. Taken together, the tables indicate that clustering is the dominant contributor to design effects, while stratification tends to partially offset this increase by reducing standard errors.
 
 \begin{table}
-    \centering
+    \centering\small
     \caption{Effect of complex household survey structure on standard errors of IOP: NSS 2007--2008}  
     \input{tables/tab_nss64_iop_design_effect}      
     \label{tab:design_effect_nss_2007}
 \end{table}
 
 \begin{table}
-    \centering
+    \centering\small
     \caption{Effect of complex household survey structure on standard errors of IOP: NSS 2023--2024}
     \input{tables/tab_nss_hce23_24_iop_design_effect}    
     \label{tab:design_effect_nss_2024}
@@ -505,7 +515,7 @@ Finally, column (8) reports the overall design effect, defined as the percentage
 We use the asymptotic distribution theory derived earlier to conduct hypothesis tests to compare the IOP estimates over the two rounds. A society can be considered as moving toward equality if, over time, its relative IOP falls, i.e., the contribution of circumstances toward overall inequality falls. The alternative hypothesis is set to reflect this as
 $ H_{1}: IOP_{2007} > IOP_{2023} $ for a given region. The importance of assessing the observed changes in relative IOP over the two survey rounds can be appreciated better by recalling the differences in sample sizes between the two survey rounds. The sample size for the 2023--2024 round is close to six times that of the 2007--2008 round (see Table~\ref{tab:circumstances_desc}). Formal hypothesis tests ensure that in situations such as ours with vastly different sample sizes, observed differences do not reflect differences in sample sizes or sampling variation.
 
-Table~\ref{tab:hyp_test_time} presents the results of conducting these tests. Most populations show a negative difference in relative IOP over the two rounds implying an increase in relative IOP in the 2023--2024. Intuitively, this implies that over the time covered by the two survey rounds, the role played by household circumstances in explaining inequality increased. In other words, the economy became more unfair. However, this increase is not statistically significant. The exceptions are the overall population and the rural subpopulation of Bihar, which witnessed a statistically significant decrease in relative IOP during this time. This finding is unsurprising given the consistent economic growth Bihar has witnessed over these two decades (\cite{Sharma2015}).
+Table~\ref{tab:hyp_test_time} presents the results of conducting these tests. Most populations show a negative difference in relative IOP over the two rounds implying an increase in relative IOP in the 2023--2024. Intuitively, this implies that over the time covered by the two survey rounds, the role played by household circumstances in explaining inequality increased. In other words, the economy became more unfair. However, this increase is not statistically significant. The exceptions are the overall population and the rural subpopulation of Bihar, which witnessed a statistically significant decrease in relative IOP during this time. This finding is unsurprising given the consistent economic growth Bihar has witnessed over these two decades \citep{Sharma2015}.
 
 %For the overall population of Bihar and the rural population in Bihar, we see that the relative IOP had a decline that was statistically significant. For two other subpopulations -- urban sample of Uttar Pradesh and overall sample in Rajasthan -- our estimates suggest that there was a decline in relative IOP, but that decline wasn't statistically significant. In contrast, across most other sub-samples there was a statistically significant increase in relative IOP. Intuitively, this implies that over the time covered by the two survey rounds, the role played by household circumstances in explaining inequality increased. In other words, the economy got more unfair. 
 
@@ -514,16 +524,39 @@ Table~\ref{tab:hyp_test_sector} presents the results of hypothesis tests compari
 
 \begin{table}
     \centering
+    \begin{threeparttable}
     \caption{Test for a decrease in relative IOP from 2007--2008 to 2023--2024}
-    \input{tables/tab_hyp_test_results_time}    
     \label{tab:hyp_test_time}
+    {\small
+    \input{tables/tab_hyp_test_results_time}}
+    \begin{tablenotes}
+        \footnotesize
+        \item[a] Difference $=$ Rel IOP for 2007--2008 $-$ Rel IOP for 2023--2024
+        \item[b] 
+        $p\text{-value} \leq 0.001$: `***';\;
+        $0.001 < p\text{-value} \leq 0.01$: `**';\;
+        $0.01 < p\text{-value} \leq 0.05$: `*';\
+        $0.05 < p\text{-value} \leq 0.1$: `\textsuperscript{.}'
+    \end{tablenotes}
+    \end{threeparttable}
 \end{table}
 
 \begin{table}
-    \centering
+    \centering\small
+    \begin{threeparttable}
     \caption{Test for difference in relative IOP between rural and urban sectors}
-    \input{tables/tab_hyp_test_results_sector}    
     \label{tab:hyp_test_sector}
+    \input{tables/tab_hyp_test_results_sector}
+    \begin{tablenotes}
+        \footnotesize
+        \item[a] Difference $=$ Rel IOP for Rural $-$ Rel IOP for Urban
+        \item[b] 
+        $p\text{-value} \leq 0.001$: `***';\;
+        $0.001 < p\text{-value} \leq 0.01$: `**';\;
+        $0.01 < p\text{-value} \leq 0.05$: `*';\
+        $0.05 < p\text{-value} \leq 0.1$: `\textsuperscript{.}'
+    \end{tablenotes}
+    \end{threeparttable}
 \end{table}
 
 %Which of the circumstances contributed significantly to the IOP
@@ -533,21 +566,21 @@ In comparing and assessing IOP across regions and time, the contribution of a pa
 
 In the ablation study, each circumstance is removed one at a time, and the relative IOP for a given region is re-estimated. The contribution of a circumstance to the relative IOP is then measured as the percentage change in relative IOP. This is calculated as the difference between the re-estimated and baseline values, expressed as a percentage of the baseline estimate. A larger percentage change, therefore, indicates a greater contribution of that circumstance to the relative IOP. Table~\ref{tab:pc_iop_nss_2007} illustrates the percentage changes in relative IOP for each region for each circumstance for the 2007--2008 round of the survey, while Table~\ref{tab:pc_iop_nss_2024} illustrates the same for the 2023--2024 round of the survey.  
 
-\begin{landscape}
+% \begin{landscape}
 \begin{table}[h]
-    \centering
+    \centering\small
     \caption{Percentage change in IOP when a given circumstance variable is not accounted for in the NSS 2007--2008 round data}
     \input{tables/tab_nss64_ablation_pc_iop}    
     \label{tab:pc_iop_nss_2007}
 \end{table}
 
 \begin{table}[h]
-    \centering
+    \centering\small
     \caption{Percentage change in IOP when a given circumstance variable is not accounted for in the NSS 2023--2024 data}
     \input{tables/tab_nss_hce23_24_ablation_pc_iop}    
     \label{tab:pc_iop_nss_2024}
 \end{table}
-\end{landscape}
+% \end{landscape}
 
 At the national level, the contribution of socio-economic characteristics such as religion and social group (defined by caste category) fell, suggesting a shift toward a more equitable society. Household type (which measured the employment sector), amount of land possessed, and the type of dwelling also decreased in their contribution toward relative IOP over the two survey rounds. Interestingly, household size increases its contribution to relative IOP over this period, rising from 0.88\% to 22.83\% at the all-India level. It is important to note here that in an ablation exercise, the contributions of the circumstances do not have to add up to 100\%. Hence, a decrease in the contribution of one circumstance does not, by design, lead to an increase in the contribution of another.
 
@@ -561,14 +594,25 @@ We test whether the change in the contribution of a given circumstance across th
 
 The observed differences in percentage change in relative IOP estimate due to a circumstance and their statistically significant results are reported in Table~\ref{tab:bootstrap_abl_results}. Although we see some large changes across the populations over the two survey rounds, only a handful of circumstances show a statistically significant difference in their contribution to relative IOP. Nationally, the overall sample and both the rural and urban subsamples show a statistically significant increase in the contribution of household size to relative IOP over the two survey rounds. The difference in the contribution of household size is also statistically significant in several of the larger states---Uttar Pradesh, Madhya Pradesh, and Rajasthan. The decrease in the contribution of household type between the two survey rounds is also statistically significant in a few cases: the national population, the rural subpopulation, and the state populations of Bihar and West Bengal. Notably, the largely consistent decreases in the contribution of religion, social group, land possession, and dwelling type over the two survey rounds, as illustrated in Table~\ref{tab:pc_iop_nss_2007} and Table~\ref{tab:pc_iop_nss_2024}, are not statistically significant. This reveals that there was no material reduction in the contribution of social circumstances of religion and caste groups toward relative IOP over these years.
 
-\begin{landscape}
-\begin{table}
+\begin{table}[htbp]
     \centering
+    \begin{threeparttable}
     \caption{Test for Significant Difference Between Ablation Results for NSS 2007--2008 and NSS 2023--2024}
     \label{tab:bootstrap_abl_results}
-    \input{tables/tab_boot_ablation_pc_iop}
+    {\small
+    % \setlength{\tabcolsep}{3pt}
+    \input{tables/tab_boot_ablation_pc_iop}}
+    \begin{tablenotes}
+        \footnotesize
+        \item[1] Difference $=$ percentage change in Rel IOP for 2023--2024 $-$ percentage change in Rel IOP for 2007--2008
+        \item[2] 
+        $p\text{-value} \leq 0.001$: `***';\;
+        $0.001 < p\text{-value} \leq 0.01$: `**';\;
+        $0.01 < p\text{-value} \leq 0.05$: `*';\
+        $0.05 < p\text{-value} \leq 0.1$: `\textsuperscript{.}'
+    \end{tablenotes}
+    \end{threeparttable}
 \end{table}
-\end{landscape}
 
 
 %===============================================================================

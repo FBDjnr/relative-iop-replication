@@ -37,3 +37,4 @@ data/**
 # small, non-sensitive lookup tables needed to run the cleaning scripts
 !data/raw/**/State Codes and Names.csv
 !data/raw/**/item_codes_for_consumption_and_expenditure.csv
+manuscript/output-subdoc/
